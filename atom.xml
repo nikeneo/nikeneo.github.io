@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://yoursite.com/"/>
-  <updated>2016-03-12T13:28:03.993Z</updated>
+  <updated>2016-03-12T13:29:28.732Z</updated>
   <id>http://yoursite.com/</id>
   
   <author>
@@ -20,15 +20,15 @@
     <link href="http://yoursite.com/2016/03/12/LM35%E6%B8%A9%E5%BA%A6%E4%BC%A0%E6%84%9F%E5%99%A8/"/>
     <id>http://yoursite.com/2016/03/12/LM35温度传感器/</id>
     <published>2016-03-12T12:51:48.000Z</published>
-    <updated>2016-03-12T13:28:03.993Z</updated>
+    <updated>2016-03-12T13:29:28.732Z</updated>
     
-    <content type="html">&lt;p&gt;Arduino下温度转换：&lt;br&gt;模拟口输入：&lt;br&gt;—java&lt;/p&gt;
+    <content type="html">&lt;p&gt;Arduino下温度转换：&lt;br&gt;模拟口输入：&lt;br&gt;— c++&lt;/p&gt;
 &lt;h2 id=&quot;TEM-analogRead-potPin-5-1024-1000-10&quot;&gt;&lt;a href=&quot;#TEM-analogRead-potPin-5-1024-1000-10&quot; class=&quot;headerlink&quot; title=&quot;TEM=analogRead(potPin)(5/1024)(1000/10);&quot;&gt;&lt;/a&gt;TEM=analogRead(potPin)&lt;em&gt;(5/1024)&lt;/em&gt;(1000/10);&lt;/h2&gt;&lt;p&gt;把读取到的val转换为温度数值,系数一：0.00488125=5/1024,0~5V对应模拟口读数&lt;br&gt;1~1024,系数二：100=1000/10,1000是毫伏与伏的转换；10是每10毫伏对应一度温升。&lt;/p&gt;
 </content>
     
     <summary type="html">
     
-      &lt;p&gt;Arduino下温度转换：&lt;br&gt;模拟口输入：&lt;br&gt;—java&lt;/p&gt;
+      &lt;p&gt;Arduino下温度转换：&lt;br&gt;模拟口输入：&lt;br&gt;— c++&lt;/p&gt;
 &lt;h2 id=&quot;TEM-analogRead-potPin-5-1024-1000-10&quot;&gt;&lt;a href=&quot;#TEM-analogRead-potPin-5-1024-1000-10&quot; class=
     
     </summary>
