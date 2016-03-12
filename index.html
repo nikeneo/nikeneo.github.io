@@ -79,8 +79,8 @@
   <div class="article-inner">
     <div class="article-entry" itemprop="articleBody">
       
-        <p>Arduino下温度转换：<br>模拟口输入：<br>— c++</p>
-<h2 id="TEM-analogRead-potPin-5-1024-1000-10"><a href="#TEM-analogRead-potPin-5-1024-1000-10" class="headerlink" title="TEM=analogRead(potPin)(5/1024)(1000/10);"></a>TEM=analogRead(potPin)<em>(5/1024)</em>(1000/10);</h2><p>把读取到的val转换为温度数值,系数一：0.00488125=5/1024,0~5V对应模拟口读数<br>1~1024,系数二：100=1000/10,1000是毫伏与伏的转换；10是每10毫伏对应一度温升。</p>
+        <p>Arduino下温度转换：<br>模拟口输入：<br><figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">TEM=analogRead(potPin)*(<span class="number">5</span>/<span class="number">1024</span>)*(<span class="number">1000</span>/<span class="number">10</span>);</span><br></pre></td></tr></table></figure></p>
+<p>把读取到的val转换为温度数值,系数一：0.00488125=5/1024,0~5V对应模拟口读数<br>1~1024,系数二：100=1000/10,1000是毫伏与伏的转换；10是每10毫伏对应一度温升。</p>
 
       
     </div>
