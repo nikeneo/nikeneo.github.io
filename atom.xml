@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://yoursite.com/"/>
-  <updated>2016-04-20T08:10:16.853Z</updated>
+  <updated>2016-05-25T01:28:50.000Z</updated>
   <id>http://yoursite.com/</id>
   
   <author>
@@ -14,6 +14,189 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title></title>
+    <link href="http://yoursite.com/2016/05/25/RHCSA%20Note/"/>
+    <id>http://yoursite.com/2016/05/25/RHCSA Note/</id>
+    <published>2016-05-25T01:29:41.802Z</published>
+    <updated>2016-05-25T01:28:50.000Z</updated>
+    
+    <content type="html">&lt;p&gt;@(我的第一个笔记本)[Linux, RHCSA]&lt;/p&gt;
+&lt;p&gt;#RHCSA Note&lt;/p&gt;
+&lt;p&gt;##输入输出重定向&lt;br&gt;重定向操作符可以用来将命令输入和输出数据流从默认位置重定向到其他位置，其输入输出数据流的位置称为&lt;strong&gt;句柄&lt;/strong&gt;，常见的句柄有三种，每种句柄有句柄、句柄代号、句柄描述三种属性：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;STDIN    0    键盘输入&lt;/li&gt;
+&lt;li&gt;STDOUT 1    输出信息到提示符窗口&lt;/li&gt;
+&lt;li&gt;STDERR 2     输出错误信息到提示符窗口&lt;br&gt;默认的&amp;lt;重定向符号的句柄代号是0，&amp;gt;符号的句柄代号是1，输入&amp;lt;或&amp;gt;符号后必须制定数据的读写位置，可以使一个文件，也可以是其他句柄。&lt;br&gt;要指定重定向到现有句柄，请使用与（&amp;amp;）字符。后面接要重定向的句柄号&lt;br&gt;例如，将句柄号2重定向到句柄号1    2&amp;gt;&amp;amp;1&lt;br&gt;Linux重定向符功能描述&lt;/li&gt;
+&lt;li&gt;&lt;blockquote&gt;
+&lt;p&gt;将命令输出写入文件或设备中，而不是命令提示符或句柄&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;/li&gt;
+&lt;li&gt;&amp;lt; 从文件而不是从键盘或句柄读入数据输入&lt;/li&gt;
+&lt;li&gt;&lt;blockquote&gt;
+&lt;blockquote&gt;
+&lt;p&gt;将输出写入文件末尾而不覆盖文件&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;/blockquote&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;blockquote&gt;
+&lt;p&gt;&amp;amp; 将一个句柄的输出写到另一个句柄的输入之中&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;/li&gt;
+&lt;li&gt;&amp;lt;&amp;amp; 从一个句柄中读取输入并将其写入到另一个句柄的输入中&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;| （意义你懂）&lt;br&gt;例如&lt;/p&gt;
+&lt;p&gt;mysh &amp;gt; mylog.txt 2&amp;gt;&amp;amp;1&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;其中2&amp;gt;&amp;amp;1的意思是将错误输出重定向到句柄1的标准输出，综合起来就是mysh命令执行过程中产生的标准输出和错误输出都会被重定向到mylog.txt中&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;mysh &amp;gt; null 2&amp;gt; null
+or
+mysh &amp;gt; /dev/null 2&amp;gt; /dev/null
+&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;##VNC Connection&lt;/p&gt;
+&lt;p&gt;在装有gnomeGUI的centos系统上安装VNC SERVER&lt;br&gt;切换到root用户下，执行&lt;br&gt;yum install tigervnc-server -y&lt;br&gt;cp /lib/systemd/system/vncserver@.service /etc/systemd/system/vncserver@:1.service&lt;br&gt;打开并编辑&lt;br&gt;[Service]&lt;br&gt;Type=forking&lt;br&gt;# Clean any existing files in /tmp/.X11-unix environment&lt;br&gt;ExecStartPre=/bin/sh -c ‘/usr/bin/vncserver -kill %i &amp;gt; /dev/null 2&amp;gt;&amp;amp;1 || :’&lt;br&gt;ExecStart=/sbin/runuser -l USER-c “/usr/bin/vncserver %i”&lt;br&gt;PIDFile=/USER/.vnc/%H%i.pid&lt;br&gt;将其中的USER改成你的用户名&lt;br&gt;重启systemd&lt;br&gt;systemctl daemon-reload&lt;br&gt;退回到之前为VNC用户创建密码&lt;br&gt;vncpasswd&lt;br&gt;启用并启动服务&lt;br&gt;systemctl enable vncserver@:1.service&lt;br&gt;systemctl start vncserver@:1.service&lt;br&gt;允许vnc服务通过防火墙&lt;br&gt;firewall-cmd –permanent –add-service vnc-server&lt;br&gt;systemctl restart firewalld.service&lt;/p&gt;
+&lt;p&gt;##SSH Connection&lt;br&gt;Linux下SSH登陆有两种途径&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;密码登录&lt;/li&gt;
+&lt;li&gt;密钥登陆&lt;br&gt;通常VPS或服务器开通后都是直接提供IP和root密码，使用这种方式就是通过密码方式登录。如果密码不够强壮，而且没有安装DenyHosts之类的防止SSH密码破解的软件，那么系统安全将存在很大的隐患。（PS:DenyHosts是针对SSH服务器的一个基于日志的入侵预防安全工具，是用Python编写的。其通过&lt;strong&gt;&lt;em&gt;监测身份验证登录日志中失败的登录尝试，屏蔽这些登录者的IP地址，&lt;/em&gt;&lt;/strong&gt;从而预防对SSH服务器的暴力破解。）&lt;br&gt;基于密钥的安全验证必须为用户自己创建一对密钥，并把共有的密钥放在需要访问的服务器上。当需要连接到SSH服务器上时，客户端软件就会向服务器发出请求，请求使用客户端的密钥进行安全验证。服务器收到请求之后，先在该用户的根目录下寻找共有密钥，然后把它和发送过来的公有密钥进行比较。如果两个密钥一致，服务器就用公有的密钥加密“质询”，并把它发送给客户端软件（putty,xshell等）。客户端收到质询之后，就可以用本地的私人密钥解密再把它发送给服务器，这种方式是相当安全的。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;###生成密钥&lt;/p&gt;
+&lt;p&gt;####在Linux服务器端生成密钥&lt;/p&gt;
+&lt;p&gt;执行ssh-keygem -t rsa&lt;/p&gt;
+&lt;p&gt;####使用xshell生成&lt;/p&gt;
+&lt;p&gt;##grep与正则表达式&lt;br&gt;grep -[acinv] ‘搜索内容串’ FILENAME&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;-a   以文本文件方式搜索&lt;/li&gt;
+&lt;li&gt;-c   计算找到的符合行的次数&lt;/li&gt;
+&lt;li&gt;-i   忽略大小写&lt;/li&gt;
+&lt;li&gt;-n   顺便输出行号&lt;/li&gt;
+&lt;li&gt;-v  反向选择，即找不符合指定条件的字符串行&lt;br&gt;&lt;strong&gt;其中搜索串可以是正则表达式&lt;/strong&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;##压缩解压命令&lt;/p&gt;
+&lt;p&gt;###tar命令：&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;# tar -cf all.tar *.jpg
+&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;将所有.jpg的文件打成一个名为all.tar的包，-c是产生新的包，-f制定包的文件名&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;# tar -rf all.tar *.gif
+&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;将所有.gif文件添加到all.tar的包里面去，-r表示增加文件&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;# tar -tf all.tar
+&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;列出all.tar包里的文件，-t是列出文件的意思&lt;/p&gt;
+&lt;p&gt;###tar调用gzip&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;# tar -czf all.tar.gz *.jpg
+&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;将所有.jpg文件打成一个tar包，并且将其用gzip压缩，生成一个gzip压缩过的包，包名为all.tar.gz&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;# tar -xzf all.tar.gz
+&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;将上面产生的包解开&lt;/p&gt;
+&lt;p&gt;###tar调用bzip2&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;# tar -cjf all.tar.bz2 *.jpg
+&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;使用-j命令调用bzip2&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;# tar -xjf all.tar.bz2
+&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;解包&lt;/p&gt;
+&lt;p&gt;###小结&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;对于.tar结尾的文件&lt;br&gt; tar -cf all.tar&lt;br&gt; tar -xf all.tar&lt;/li&gt;
+&lt;li&gt;对于.gz结尾的文件&lt;br&gt; gzip -d all.gz&lt;br&gt; gunzip all.gz&lt;/li&gt;
+&lt;li&gt;对于.tgz或.tar.gz文件&lt;br&gt; tar -xzf all.tar.gz&lt;br&gt; tar -xzf all.tgz&lt;/li&gt;
+&lt;li&gt;对于.bz2结尾的文件&lt;br&gt; bzip2 -d all.bz2&lt;br&gt; bunzip2 all.bz2&lt;/li&gt;
+&lt;li&gt;对于tar.bz2结尾的文件&lt;br&gt; tar -xjf all.tar.bz2&lt;/li&gt;
+&lt;li&gt;对于.Z结尾的文件&lt;br&gt; uncompress all.Z&lt;/li&gt;
+&lt;li&gt;对于.tar.Z结尾的文件&lt;br&gt; tar -xZf all.tar.Z&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;###对于win平台常见的zip和rar文件&lt;/p&gt;
+&lt;p&gt;zip all.zip *.jpg&lt;/p&gt;
+&lt;p&gt;unzip all.zip&lt;/p&gt;
+&lt;p&gt;在linux下处理.rar文件，需要安装RAR for Linux&lt;/p&gt;
+&lt;p&gt;tar -xzpvf rarlinux-3.2.0.tar.gz&lt;br&gt;cd rar&lt;br&gt;make&lt;/p&gt;
+&lt;p&gt;rar a all *.jpg&lt;br&gt;程序会自动将rar后缀名附着在all后面&lt;br&gt;unrar e all.rar&lt;/p&gt;
+&lt;p&gt;总结&lt;br&gt;1、&lt;em&gt;.tar 用 tar –xvf 解压&lt;br&gt;2、&lt;/em&gt;.gz 用 gzip -d或者gunzip 解压&lt;br&gt;3、*.tar.gz和&lt;em&gt;.tgz 用 tar –xzf 解压&lt;br&gt;4、&lt;/em&gt;.bz2 用 bzip2 -d或者用bunzip2 解压&lt;br&gt;5、&lt;em&gt;.tar.bz2用tar –xjf 解压&lt;br&gt;6、&lt;/em&gt;.Z 用 uncompress 解压&lt;br&gt;7、&lt;em&gt;.tar.Z 用tar –xZf 解压&lt;br&gt;8、&lt;/em&gt;.rar 用 unrar e解压&lt;br&gt;9、*.zip 用 unzip 解压&lt;/p&gt;
+&lt;p&gt;##创建和删除软、硬链接&lt;br&gt;在Linux系统中，内核为每一个新创建的文件分配一个inode（索引节点），每个文件都有一个唯一的inode号，文件属性保存在索引节点中，在访问文件时，索引节点呗复制到内存里，从而实现文件的快速访问。&lt;br&gt;链接是一种在共享文件和访问它的用户的若干目录项之间建立联系的一种方法，Linux中包含两种链接：硬链接（Hard Link）和软链接（Soft Link），软链接又称为符号链接（Symbolic Link）。符号链接相当于Windows下的快捷方式。&lt;/p&gt;
+&lt;p&gt;###硬链接&lt;br&gt;就是一个指针，指向文件索引节点，系统并不为它重新分配inode，可以用ln命令来创建硬链接&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;ln [options] EXISTINGFILE NEWFILE
+ln [options] EXISTINGFILE-LIST DIRECORY
+&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;-f 建立时，将同档案名删除&lt;br&gt;-i 删除前进行询问&lt;/p&gt;
+&lt;p&gt;ln -s abc cde 建立abc 的软链接&lt;br&gt;ln abc cde 建立abc的硬链接&lt;/p&gt;
+&lt;p&gt;ln file2 /home/root/file2hard&lt;/p&gt;
+&lt;p&gt;如果使用了-f选项，如果newfile已经存在，则无论原来的newfile是什么文件，只用当前用户对它有写权限，newfile就成为EXISTINGFILE的硬链接文件&lt;/p&gt;
+&lt;p&gt;缺点：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;不可以在不同文件系统的文件间建立链接&lt;/li&gt;
+&lt;li&gt;只有超级用户才可以为目录创建硬链接&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;###软链接&lt;/p&gt;
+&lt;p&gt;软链接克服了硬链接的不足，没有任何文件系统的限制，任何用户可以创建指向目录的符号链接。甚至可以跨越不同机器、不同网络对文件进行里链接。&lt;br&gt;建立软链接，只要在ln后面加上选项-s&lt;/p&gt;
+&lt;p&gt;ln -s FILE1 FILE2&lt;/p&gt;
+&lt;p&gt;###删除链接&lt;br&gt;rm -rf symbolic_name (不加/号！！！)&lt;/p&gt;
+&lt;p&gt;##帮助文档&lt;br&gt;Linux提供了极为详细的帮助工具及文档，一定要养成查帮助文档的习惯（没必要记忆所有东西），可以大大减少需要记忆的东西并提高效率&lt;br&gt;# help Command&lt;br&gt;适用于内部命令&lt;br&gt;举例：&lt;br&gt;# type cd&lt;br&gt;cd is a shell builtin&lt;br&gt;# help cd&lt;br&gt;# type ls&lt;br&gt;ls is aliased to &lt;code&gt;ls --color=auto&amp;#39;
+\# help ls
+-bash: help: no help topics match&lt;/code&gt;ls’.  Try &lt;code&gt;help help&amp;#39; or&lt;/code&gt;man -k ls’ or `info ls’.&lt;br&gt;# Command –help/-h&lt;br&gt;适用于外部命令&lt;br&gt;例如：&lt;br&gt;# ls –help&lt;br&gt;# man Command&lt;br&gt;manual 手册，是分章节；man # Command （#表示章节号）&lt;br&gt;1、所有用户可以使用的命令&lt;br&gt;2、系统内核调用，不是每个命令都有系统调用（如：man 2 read）&lt;br&gt;3、库调用&lt;br&gt;4、特殊文件，如：/dev/tty1&lt;br&gt;5、文件格式（命令配置文件的语法，如：man 5 passwd）&lt;br&gt;6、游戏相关&lt;br&gt;7、杂项&lt;br&gt;8、管理员命令，如：fdisk&lt;br&gt;man命令查询操作参考《vi,vim用法》中命令模式&lt;br&gt;看懂man命令语法&lt;br&gt;[]：可选内容&lt;br&gt;&amp;lt;&amp;gt;：必须给出内容&lt;br&gt;a|b|c：多选一&lt;br&gt;…：可以有多个&lt;br&gt;# info Command&lt;br&gt;有超链接稳文档，info是信息页，提供作者、版本，什么时候发布等更详细信息，man是手册告诉你怎么用&lt;br&gt;README&lt;br&gt;绝大多数程序都有相应的帮助文档，保存在/usr/share/doc文件夹中&lt;br&gt;如：&lt;br&gt;# ls /usr/share/doc/ntp-4.2.4p8/&lt;br&gt;ChangeLog  COPYRIGHT  NEWS&lt;br&gt;Google&lt;br&gt;遇到问题，二话不说Google，优先参考项目官方文档&lt;/p&gt;
+&lt;p&gt;##识别进程的占用CPU/Memory，使用renice调整进程优先级&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;CPU占用最多的前10个进程：&lt;br&gt;ps auxw | head -1; ps auxw | sort -rn -k3 | head -10&lt;/li&gt;
+&lt;li&gt;内存占用最多的前10个进程：&lt;br&gt;ps auxw | head -1; ps auxw | sort -rn -k4 | head&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;ps命令下常用参数含义：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;%MEM 进程的内存占用率&lt;/li&gt;
+&lt;li&gt;VSZ 进程所使用的虚拟内存大小&lt;/li&gt;
+&lt;li&gt;RSS 进程使用的驻留集大小或者是实际内存的大小&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;ps -aux | sort -k4nr | head -n 5&lt;/p&gt;
+&lt;p&gt;-k4nr是sort命令的参数,k4表示比较的是第四个key,也就是内存占用%的那一列,n是按照数字方式来比较,r表示反转排序结果,默认是从低到高,r之后就变成从高到低.如果你要用展示最初的5条,应该再加上head -n 5.而不是直接用head 5.&lt;/p&gt;
+&lt;p&gt;##NFS搭建&lt;/p&gt;
+&lt;p&gt;###building&lt;br&gt;一、安装 NFS 服务器所需的软件包：&lt;/p&gt;
+&lt;p&gt;1&lt;br&gt;yum install -y nfs-utils&lt;br&gt;二、编辑exports文件，添加从机&lt;/p&gt;
+&lt;p&gt;1&lt;br&gt;2&lt;br&gt;vim /etc/exports&lt;br&gt;/data 192.168.0.100(rw,sync,fsid=0)  192.168.0.101(rw,sync,fsid=0)&lt;br&gt;192.168.0.100 和192.168.0.101两台机器可以挂载NFS服务器上的/data目录到自己的文件系统中&lt;/p&gt;
+&lt;p&gt;rw表示可读写；sync表示同步写，fsid=0表示将/data找个目录包装成根目录&lt;/p&gt;
+&lt;p&gt;三、启动nfs服务&lt;/p&gt;
+&lt;p&gt;先为rpcbind和nfs做开机启动：&lt;/p&gt;
+&lt;p&gt;1&lt;br&gt;2&lt;br&gt;systemctl enable rpcbind.service&lt;br&gt;systemctl enable nfs-server.service&lt;br&gt;然后分别启动rpcbind和nfs服务：&lt;/p&gt;
+&lt;p&gt;1&lt;br&gt;2&lt;br&gt;systemctl start rpcbind.service&lt;br&gt;systemctl start nfs-server.service&lt;br&gt;确认NFS服务器启动成功：&lt;/p&gt;
+&lt;p&gt;1&lt;br&gt;rpcinfo -p&lt;br&gt;检查 NFS 服务器是否挂载我们想共享的目录 /data：&lt;/p&gt;
+&lt;p&gt;1&lt;br&gt;2&lt;br&gt;3&lt;br&gt;4&lt;br&gt;exportfs&lt;br&gt;#可以查看到已经ok&lt;br&gt;/data           192.168.0.100&lt;br&gt;/data           192.168.0.101&lt;br&gt;四、在从机上安装NFS 客户端&lt;/p&gt;
+&lt;p&gt;首先是安裝nfs，同上，然后启动rpcbind服务&lt;/p&gt;
+&lt;p&gt;先为rpcbind做开机启动：&lt;/p&gt;
+&lt;p&gt;1&lt;br&gt;systemctl enable rpcbind.service&lt;br&gt;然后启动rpcbind服务：&lt;/p&gt;
+&lt;p&gt;1&lt;br&gt;systemctl start rpcbind.service&lt;br&gt;注意：客户端不需要启动nfs服务&lt;/p&gt;
+&lt;p&gt;自动挂载&lt;br&gt;在/etc/rc.d/rc.local中添加一行&lt;br&gt;mount -t nfs IP:directory  /localdirectory&lt;br&gt;然后执行&lt;br&gt;chmod +x /etc/rc.d/rc.local&lt;/p&gt;
+&lt;p&gt;阿里云上的nfs搭建指南&lt;br&gt;&lt;a href=&quot;https://help.aliyun.com/knowledge_detail/6709580.html&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;https://help.aliyun.com/knowledge_detail/6709580.html&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;###mount&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;mount -t nfs xxx.xxx.xxx.xxx:/NFSPATH /LOCALPATH
+&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;如果要设置客户端启动时就挂载nfs，可以设置/etc/fstab，添加&lt;br&gt;xxx.xxx.xxx.xxx:/NFSPATH    /LOCALPATH nfs auto, rw, vers=3, hard, intr, tcp, rsize=32768, wsize=32768    0 0&lt;/p&gt;
+&lt;p&gt;##进程优先级&lt;br&gt;1.新建一个进程并设置优先级&lt;br&gt;将当前目录下的documents目录打包，但不希望tar占用太多CPU：&lt;br&gt;nice-19 tar -zcf pack.tar.gz documents&lt;br&gt;方法非常简单，即在原命令前加上“nice -19”。很多人可能有疑问了，最低优先级不是19么？那是因为这个“-19”中的“-”仅表示参数前缀；所以，如果希望：&lt;br&gt;将当前目录下的documents目录打包，并且赋予tar进程最高的优先级：&lt;br&gt;nice –19 tar -zcf pack.tar.gz documents&lt;br&gt;2.修改已经存在的进程的优先级&lt;br&gt;将PID为1799的进程优先级设置为最低（19）：&lt;br&gt;renice 19 1799&lt;br&gt;将PID为1799的进程优先级设置为最高（-19）：&lt;br&gt;renice-19 1799&lt;br&gt;大家很可能发现了，renice命令与nice命令的优先级参数的形式是相反的。直接以优先级作为参数即可，不能加上“-”号，这点需要初学者注意。&lt;/p&gt;
+&lt;p&gt;3.查看进程优先级&lt;br&gt;直接使用top命令即可查看进程优先级。&lt;br&gt;Linux对于进程优先级调整的作用还是非常明显的，在实际操作中也能明显的体会到。&lt;/p&gt;
+&lt;p&gt;##重置root密码&lt;br&gt;rd.break重置密码&lt;/p&gt;
+&lt;p&gt;1、启动的时候，在启动界面，相应启动项，内核名称上按“e”；&lt;/p&gt;
+&lt;p&gt;2、进入后，找到linux16开头的地方，按“end”键到最后，输入rd.break，按ctrl+x进入。或者打到linux16 中ro的位置，执行ctrl +k 删除到行尾，再增加rd.break；&lt;/p&gt;
+&lt;p&gt;3、进去后输入命令mount，发现根为/sysroot/，并且不能写，只有ro=readonly权限；&lt;/p&gt;
+&lt;p&gt;4、mount -o remount,rw /sysroot/，重新挂载，之后mount，发现有了r,w权限；&lt;/p&gt;
+&lt;p&gt;5、chroot /sysroot/ 改变根；&lt;/p&gt;
+&lt;p&gt;（1）echo redhat|passwd –stdin root 修改root密码为redhat，或者输入passwd，交互修改；&lt;/p&gt;
+&lt;p&gt;（2）还有就是先cp一份，然后修改/etc/shadow文件&lt;/p&gt;
+&lt;p&gt;6、touch /.autorelabel 这句是为了selinux生效，重新扫描磁盘标签，autorelabel 是一个隐藏文件，前面有点，而且一定不能写错，不然reboot时会卡住。&lt;/p&gt;
+&lt;p&gt;7、ctrl+d 退出&lt;/p&gt;
+&lt;p&gt;8、然后reboot&lt;/p&gt;
+&lt;p&gt;至此，密码修改完成&lt;/p&gt;
+&lt;p&gt;##创建、删除分区&lt;/p&gt;
+&lt;p&gt;###ext4&lt;br&gt;选择要进行操作的磁盘：&lt;br&gt;fdisk /dev/sdb&lt;br&gt;输入m列出可执行的命令&lt;br&gt;输入p列出磁盘目前的分区情况&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;Command (m for help): p 
+Disk /dev/sdb: 3221 MB, 3221225472 bytes 255 heads, 63 sectors/track, 391 cylinders Units = cylinders of 16065 * 512 = 8225280 bytes 
+Device Boot Start End Blocks Id System 
+/dev/sdb1 1 1 8001 8e Linux LVM /dev/sdb2 2 26 200812+ 83 Linux
+&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;输入d然后选择分区，删除现有分区&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;./1464097914658.png&quot; alt=&quot;Alt text&quot;&gt;&lt;br&gt;输入p，查看分区情况，确认已删除后输入n简历新的磁盘分区&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;./1464097954320.png&quot; alt=&quot;Alt text&quot;&gt;&lt;/p&gt;
+&lt;p&gt;##（自动）挂载、卸载和使用LUKS-encrypted 文件系统&lt;br&gt;cryptsetup luksFormat /dev/sdb&lt;br&gt;cryptsetup luksOpen /dev/sdb cryp&lt;br&gt;dd if=/dev/urandom of=/root/keyfile1 bs=1024 count=4&lt;br&gt;chmod 0400 /root/keyfile1&lt;br&gt;cryptsetup luksAddKey /dev/sdb /root/keyfile1&lt;br&gt;mkfs.xfs /dev/mapper/cryp&lt;br&gt;echo “/dev/mapper/cryp /mnt/1t xfs defaults 1 2” &amp;gt;&amp;gt; /etc/fstab&lt;br&gt;echo “cryp /dev/sdb /root/keyfile1 luks” &amp;gt;&amp;gt; /etc/crypttab&lt;br&gt;mount -a&lt;/p&gt;
+&lt;p&gt;##GPT TO MBR&lt;/p&gt;
+</content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;@(我的第一个笔记本)[Linux, RHCSA]&lt;/p&gt;
+&lt;p&gt;#RHCSA Note&lt;/p&gt;
+&lt;p&gt;##输入输出重定向&lt;br&gt;重定向操作符可以用来将命令输入和输出数据流从默认位置重定向到其他位置，其输入输出数据流的位置称为&lt;strong&gt;句柄&lt;/strong&gt;，常见的句
+    
+    </summary>
+    
+    
+  </entry>
   
   <entry>
     <title>Linux WEB 服务器性能优化</title>

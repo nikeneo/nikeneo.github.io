@@ -1,0 +1,391 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<!-- Head tag -->
+<head>
+
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!--Description-->
+    
+        <meta name="description" content="@(我的第一个笔记本)[Linux, RHCSA]
+#RHCSA Note
+##输入输出重定向重定向操作符可以用来将命令输入和输出数据流从默认位置重定向到其他位置，其输入输出数据流的位置称为句柄，常见的句柄有三种，每种句柄有句柄、句柄代号、句柄描述三种属性：
+
+STDIN    0    键盘输入
+">
+    
+
+    <!--Author-->
+    
+        <meta name="author" content="Nikeneo">
+    
+
+    <!--Open Graph Title-->
+    
+
+    <!--Open Graph Site Name-->
+    <meta property="og:site_name" content="Nikeneo&#39;s TechZone"/>
+
+    <!--Page Cover-->
+    
+        <meta property="og:image" content="undefined"/>
+    
+
+    <!-- Title -->
+    
+    <title>Nikeneo&#39;s TechZone</title>
+
+    <!-- Bootstrap Core CSS -->
+    <link rel="stylesheet" href="/bootstrap/css/bootstrap.min.css">
+
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="/css/style.css">
+
+    <!-- Custom Fonts -->
+    <link href="http://maxcdn.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+    <link href='http://fonts.googleapis.com/css?family=Lora:400,700,400italic,700italic' rel='stylesheet' type='text/css'>
+    <link href='http://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800' rel='stylesheet' type='text/css'>
+
+    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+        <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+        <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+
+    <!-- Gallery -->
+    <link href="//cdn.rawgit.com/noelboss/featherlight/1.3.5/release/featherlight.min.css" type="text/css" rel="stylesheet" />
+
+    <!-- Google Analytics -->
+    
+
+
+</head>
+
+<body>
+
+    <!-- Menu -->
+    <!-- Navigation -->
+<nav class="navbar navbar-default navbar-custom navbar-fixed-top">
+    <div class="container-fluid">
+        <!-- Brand and toggle get grouped for better mobile display -->
+        <div class="navbar-header page-scroll">
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="/">Nikeneo's TechZone</a>
+        </div>
+
+        <!-- Collect the nav links, forms, and other content for toggling -->
+        <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+            <ul class="nav navbar-nav navbar-right">
+                
+                    <li>
+                        <a href="/">Home</a>
+                    </li>
+                
+                    <li>
+                        <a href="/archives">Archives</a>
+                    </li>
+                
+            </ul>
+        </div>
+        <!-- /.navbar-collapse -->
+    </div>
+    <!-- /.container -->
+</nav>
+
+    <!-- Main Content -->
+    <!-- Page Header -->
+<!-- Set your background image for this header in your post front-matter: cover -->
+
+<header class="intro-header" style="background-image: url('http://ww4.sinaimg.cn/large/92c2082bjw1f336w7nb3xj21hc0rp47b.jpg')">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                <div class="post-heading">
+                    <h1>Untitled</h1>
+                    
+                    <span class="meta">
+                        <!-- Date and Author -->
+                        
+                        2016-05-25
+                    </span>
+                </div>
+            </div>
+        </div>
+    </div>
+</header>
+
+<!-- Post Content -->
+<article>
+    <div class="container">
+        <div class="row">
+
+            <!-- Tags and categories -->
+           
+
+            <!-- Gallery -->
+            
+
+            <!-- Post Main Content -->
+            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                <p>@(我的第一个笔记本)[Linux, RHCSA]</p>
+<p>#RHCSA Note</p>
+<p>##输入输出重定向<br>重定向操作符可以用来将命令输入和输出数据流从默认位置重定向到其他位置，其输入输出数据流的位置称为<strong>句柄</strong>，常见的句柄有三种，每种句柄有句柄、句柄代号、句柄描述三种属性：</p>
+<ul>
+<li>STDIN    0    键盘输入</li>
+<li>STDOUT 1    输出信息到提示符窗口</li>
+<li>STDERR 2     输出错误信息到提示符窗口<br>默认的&lt;重定向符号的句柄代号是0，&gt;符号的句柄代号是1，输入&lt;或&gt;符号后必须制定数据的读写位置，可以使一个文件，也可以是其他句柄。<br>要指定重定向到现有句柄，请使用与（&amp;）字符。后面接要重定向的句柄号<br>例如，将句柄号2重定向到句柄号1    2&gt;&amp;1<br>Linux重定向符功能描述</li>
+<li><blockquote>
+<p>将命令输出写入文件或设备中，而不是命令提示符或句柄</p>
+</blockquote>
+</li>
+<li>&lt; 从文件而不是从键盘或句柄读入数据输入</li>
+<li><blockquote>
+<blockquote>
+<p>将输出写入文件末尾而不覆盖文件</p>
+</blockquote>
+</blockquote>
+</li>
+<li><blockquote>
+<p>&amp; 将一个句柄的输出写到另一个句柄的输入之中</p>
+</blockquote>
+</li>
+<li>&lt;&amp; 从一个句柄中读取输入并将其写入到另一个句柄的输入中</li>
+<li><p>| （意义你懂）<br>例如</p>
+<p>mysh &gt; mylog.txt 2&gt;&amp;1</p>
+</li>
+</ul>
+<p>其中2&gt;&amp;1的意思是将错误输出重定向到句柄1的标准输出，综合起来就是mysh命令执行过程中产生的标准输出和错误输出都会被重定向到mylog.txt中</p>
+<pre><code>mysh &gt; null 2&gt; null
+or
+mysh &gt; /dev/null 2&gt; /dev/null
+</code></pre><p>##VNC Connection</p>
+<p>在装有gnomeGUI的centos系统上安装VNC SERVER<br>切换到root用户下，执行<br>yum install tigervnc-server -y<br>cp /lib/systemd/system/vncserver@.service /etc/systemd/system/vncserver@:1.service<br>打开并编辑<br>[Service]<br>Type=forking<br># Clean any existing files in /tmp/.X11-unix environment<br>ExecStartPre=/bin/sh -c ‘/usr/bin/vncserver -kill %i &gt; /dev/null 2&gt;&amp;1 || :’<br>ExecStart=/sbin/runuser -l USER-c “/usr/bin/vncserver %i”<br>PIDFile=/USER/.vnc/%H%i.pid<br>将其中的USER改成你的用户名<br>重启systemd<br>systemctl daemon-reload<br>退回到之前为VNC用户创建密码<br>vncpasswd<br>启用并启动服务<br>systemctl enable vncserver@:1.service<br>systemctl start vncserver@:1.service<br>允许vnc服务通过防火墙<br>firewall-cmd –permanent –add-service vnc-server<br>systemctl restart firewalld.service</p>
+<p>##SSH Connection<br>Linux下SSH登陆有两种途径</p>
+<ul>
+<li>密码登录</li>
+<li>密钥登陆<br>通常VPS或服务器开通后都是直接提供IP和root密码，使用这种方式就是通过密码方式登录。如果密码不够强壮，而且没有安装DenyHosts之类的防止SSH密码破解的软件，那么系统安全将存在很大的隐患。（PS:DenyHosts是针对SSH服务器的一个基于日志的入侵预防安全工具，是用Python编写的。其通过<strong><em>监测身份验证登录日志中失败的登录尝试，屏蔽这些登录者的IP地址，</em></strong>从而预防对SSH服务器的暴力破解。）<br>基于密钥的安全验证必须为用户自己创建一对密钥，并把共有的密钥放在需要访问的服务器上。当需要连接到SSH服务器上时，客户端软件就会向服务器发出请求，请求使用客户端的密钥进行安全验证。服务器收到请求之后，先在该用户的根目录下寻找共有密钥，然后把它和发送过来的公有密钥进行比较。如果两个密钥一致，服务器就用公有的密钥加密“质询”，并把它发送给客户端软件（putty,xshell等）。客户端收到质询之后，就可以用本地的私人密钥解密再把它发送给服务器，这种方式是相当安全的。</li>
+</ul>
+<p>###生成密钥</p>
+<p>####在Linux服务器端生成密钥</p>
+<p>执行ssh-keygem -t rsa</p>
+<p>####使用xshell生成</p>
+<p>##grep与正则表达式<br>grep -[acinv] ‘搜索内容串’ FILENAME</p>
+<ul>
+<li>-a   以文本文件方式搜索</li>
+<li>-c   计算找到的符合行的次数</li>
+<li>-i   忽略大小写</li>
+<li>-n   顺便输出行号</li>
+<li>-v  反向选择，即找不符合指定条件的字符串行<br><strong>其中搜索串可以是正则表达式</strong></li>
+</ul>
+<p>##压缩解压命令</p>
+<p>###tar命令：</p>
+<pre><code># tar -cf all.tar *.jpg
+</code></pre><p>将所有.jpg的文件打成一个名为all.tar的包，-c是产生新的包，-f制定包的文件名</p>
+<pre><code># tar -rf all.tar *.gif
+</code></pre><p>将所有.gif文件添加到all.tar的包里面去，-r表示增加文件</p>
+<pre><code># tar -tf all.tar
+</code></pre><p>列出all.tar包里的文件，-t是列出文件的意思</p>
+<p>###tar调用gzip</p>
+<pre><code># tar -czf all.tar.gz *.jpg
+</code></pre><p>将所有.jpg文件打成一个tar包，并且将其用gzip压缩，生成一个gzip压缩过的包，包名为all.tar.gz</p>
+<pre><code># tar -xzf all.tar.gz
+</code></pre><p>将上面产生的包解开</p>
+<p>###tar调用bzip2</p>
+<pre><code># tar -cjf all.tar.bz2 *.jpg
+</code></pre><p>使用-j命令调用bzip2</p>
+<pre><code># tar -xjf all.tar.bz2
+</code></pre><p>解包</p>
+<p>###小结</p>
+<ol>
+<li>对于.tar结尾的文件<br> tar -cf all.tar<br> tar -xf all.tar</li>
+<li>对于.gz结尾的文件<br> gzip -d all.gz<br> gunzip all.gz</li>
+<li>对于.tgz或.tar.gz文件<br> tar -xzf all.tar.gz<br> tar -xzf all.tgz</li>
+<li>对于.bz2结尾的文件<br> bzip2 -d all.bz2<br> bunzip2 all.bz2</li>
+<li>对于tar.bz2结尾的文件<br> tar -xjf all.tar.bz2</li>
+<li>对于.Z结尾的文件<br> uncompress all.Z</li>
+<li>对于.tar.Z结尾的文件<br> tar -xZf all.tar.Z</li>
+</ol>
+<p>###对于win平台常见的zip和rar文件</p>
+<p>zip all.zip *.jpg</p>
+<p>unzip all.zip</p>
+<p>在linux下处理.rar文件，需要安装RAR for Linux</p>
+<p>tar -xzpvf rarlinux-3.2.0.tar.gz<br>cd rar<br>make</p>
+<p>rar a all *.jpg<br>程序会自动将rar后缀名附着在all后面<br>unrar e all.rar</p>
+<p>总结<br>1、<em>.tar 用 tar –xvf 解压<br>2、</em>.gz 用 gzip -d或者gunzip 解压<br>3、*.tar.gz和<em>.tgz 用 tar –xzf 解压<br>4、</em>.bz2 用 bzip2 -d或者用bunzip2 解压<br>5、<em>.tar.bz2用tar –xjf 解压<br>6、</em>.Z 用 uncompress 解压<br>7、<em>.tar.Z 用tar –xZf 解压<br>8、</em>.rar 用 unrar e解压<br>9、*.zip 用 unzip 解压</p>
+<p>##创建和删除软、硬链接<br>在Linux系统中，内核为每一个新创建的文件分配一个inode（索引节点），每个文件都有一个唯一的inode号，文件属性保存在索引节点中，在访问文件时，索引节点呗复制到内存里，从而实现文件的快速访问。<br>链接是一种在共享文件和访问它的用户的若干目录项之间建立联系的一种方法，Linux中包含两种链接：硬链接（Hard Link）和软链接（Soft Link），软链接又称为符号链接（Symbolic Link）。符号链接相当于Windows下的快捷方式。</p>
+<p>###硬链接<br>就是一个指针，指向文件索引节点，系统并不为它重新分配inode，可以用ln命令来创建硬链接</p>
+<pre><code>ln [options] EXISTINGFILE NEWFILE
+ln [options] EXISTINGFILE-LIST DIRECORY
+</code></pre><p>-f 建立时，将同档案名删除<br>-i 删除前进行询问</p>
+<p>ln -s abc cde 建立abc 的软链接<br>ln abc cde 建立abc的硬链接</p>
+<p>ln file2 /home/root/file2hard</p>
+<p>如果使用了-f选项，如果newfile已经存在，则无论原来的newfile是什么文件，只用当前用户对它有写权限，newfile就成为EXISTINGFILE的硬链接文件</p>
+<p>缺点：</p>
+<ul>
+<li>不可以在不同文件系统的文件间建立链接</li>
+<li>只有超级用户才可以为目录创建硬链接</li>
+</ul>
+<p>###软链接</p>
+<p>软链接克服了硬链接的不足，没有任何文件系统的限制，任何用户可以创建指向目录的符号链接。甚至可以跨越不同机器、不同网络对文件进行里链接。<br>建立软链接，只要在ln后面加上选项-s</p>
+<p>ln -s FILE1 FILE2</p>
+<p>###删除链接<br>rm -rf symbolic_name (不加/号！！！)</p>
+<p>##帮助文档<br>Linux提供了极为详细的帮助工具及文档，一定要养成查帮助文档的习惯（没必要记忆所有东西），可以大大减少需要记忆的东西并提高效率<br># help Command<br>适用于内部命令<br>举例：<br># type cd<br>cd is a shell builtin<br># help cd<br># type ls<br>ls is aliased to <code>ls --color=auto&#39;
+\# help ls
+-bash: help: no help topics match</code>ls’.  Try <code>help help&#39; or</code>man -k ls’ or `info ls’.<br># Command –help/-h<br>适用于外部命令<br>例如：<br># ls –help<br># man Command<br>manual 手册，是分章节；man # Command （#表示章节号）<br>1、所有用户可以使用的命令<br>2、系统内核调用，不是每个命令都有系统调用（如：man 2 read）<br>3、库调用<br>4、特殊文件，如：/dev/tty1<br>5、文件格式（命令配置文件的语法，如：man 5 passwd）<br>6、游戏相关<br>7、杂项<br>8、管理员命令，如：fdisk<br>man命令查询操作参考《vi,vim用法》中命令模式<br>看懂man命令语法<br>[]：可选内容<br>&lt;&gt;：必须给出内容<br>a|b|c：多选一<br>…：可以有多个<br># info Command<br>有超链接稳文档，info是信息页，提供作者、版本，什么时候发布等更详细信息，man是手册告诉你怎么用<br>README<br>绝大多数程序都有相应的帮助文档，保存在/usr/share/doc文件夹中<br>如：<br># ls /usr/share/doc/ntp-4.2.4p8/<br>ChangeLog  COPYRIGHT  NEWS<br>Google<br>遇到问题，二话不说Google，优先参考项目官方文档</p>
+<p>##识别进程的占用CPU/Memory，使用renice调整进程优先级</p>
+<ol>
+<li>CPU占用最多的前10个进程：<br>ps auxw | head -1; ps auxw | sort -rn -k3 | head -10</li>
+<li>内存占用最多的前10个进程：<br>ps auxw | head -1; ps auxw | sort -rn -k4 | head</li>
+</ol>
+<p>ps命令下常用参数含义：</p>
+<ul>
+<li>%MEM 进程的内存占用率</li>
+<li>VSZ 进程所使用的虚拟内存大小</li>
+<li>RSS 进程使用的驻留集大小或者是实际内存的大小</li>
+</ul>
+<p>ps -aux | sort -k4nr | head -n 5</p>
+<p>-k4nr是sort命令的参数,k4表示比较的是第四个key,也就是内存占用%的那一列,n是按照数字方式来比较,r表示反转排序结果,默认是从低到高,r之后就变成从高到低.如果你要用展示最初的5条,应该再加上head -n 5.而不是直接用head 5.</p>
+<p>##NFS搭建</p>
+<p>###building<br>一、安装 NFS 服务器所需的软件包：</p>
+<p>1<br>yum install -y nfs-utils<br>二、编辑exports文件，添加从机</p>
+<p>1<br>2<br>vim /etc/exports<br>/data 192.168.0.100(rw,sync,fsid=0)  192.168.0.101(rw,sync,fsid=0)<br>192.168.0.100 和192.168.0.101两台机器可以挂载NFS服务器上的/data目录到自己的文件系统中</p>
+<p>rw表示可读写；sync表示同步写，fsid=0表示将/data找个目录包装成根目录</p>
+<p>三、启动nfs服务</p>
+<p>先为rpcbind和nfs做开机启动：</p>
+<p>1<br>2<br>systemctl enable rpcbind.service<br>systemctl enable nfs-server.service<br>然后分别启动rpcbind和nfs服务：</p>
+<p>1<br>2<br>systemctl start rpcbind.service<br>systemctl start nfs-server.service<br>确认NFS服务器启动成功：</p>
+<p>1<br>rpcinfo -p<br>检查 NFS 服务器是否挂载我们想共享的目录 /data：</p>
+<p>1<br>2<br>3<br>4<br>exportfs<br>#可以查看到已经ok<br>/data           192.168.0.100<br>/data           192.168.0.101<br>四、在从机上安装NFS 客户端</p>
+<p>首先是安裝nfs，同上，然后启动rpcbind服务</p>
+<p>先为rpcbind做开机启动：</p>
+<p>1<br>systemctl enable rpcbind.service<br>然后启动rpcbind服务：</p>
+<p>1<br>systemctl start rpcbind.service<br>注意：客户端不需要启动nfs服务</p>
+<p>自动挂载<br>在/etc/rc.d/rc.local中添加一行<br>mount -t nfs IP:directory  /localdirectory<br>然后执行<br>chmod +x /etc/rc.d/rc.local</p>
+<p>阿里云上的nfs搭建指南<br><a href="https://help.aliyun.com/knowledge_detail/6709580.html" target="_blank" rel="external">https://help.aliyun.com/knowledge_detail/6709580.html</a></p>
+<p>###mount</p>
+<pre><code>mount -t nfs xxx.xxx.xxx.xxx:/NFSPATH /LOCALPATH
+</code></pre><p>如果要设置客户端启动时就挂载nfs，可以设置/etc/fstab，添加<br>xxx.xxx.xxx.xxx:/NFSPATH    /LOCALPATH nfs auto, rw, vers=3, hard, intr, tcp, rsize=32768, wsize=32768    0 0</p>
+<p>##进程优先级<br>1.新建一个进程并设置优先级<br>将当前目录下的documents目录打包，但不希望tar占用太多CPU：<br>nice-19 tar -zcf pack.tar.gz documents<br>方法非常简单，即在原命令前加上“nice -19”。很多人可能有疑问了，最低优先级不是19么？那是因为这个“-19”中的“-”仅表示参数前缀；所以，如果希望：<br>将当前目录下的documents目录打包，并且赋予tar进程最高的优先级：<br>nice –19 tar -zcf pack.tar.gz documents<br>2.修改已经存在的进程的优先级<br>将PID为1799的进程优先级设置为最低（19）：<br>renice 19 1799<br>将PID为1799的进程优先级设置为最高（-19）：<br>renice-19 1799<br>大家很可能发现了，renice命令与nice命令的优先级参数的形式是相反的。直接以优先级作为参数即可，不能加上“-”号，这点需要初学者注意。</p>
+<p>3.查看进程优先级<br>直接使用top命令即可查看进程优先级。<br>Linux对于进程优先级调整的作用还是非常明显的，在实际操作中也能明显的体会到。</p>
+<p>##重置root密码<br>rd.break重置密码</p>
+<p>1、启动的时候，在启动界面，相应启动项，内核名称上按“e”；</p>
+<p>2、进入后，找到linux16开头的地方，按“end”键到最后，输入rd.break，按ctrl+x进入。或者打到linux16 中ro的位置，执行ctrl +k 删除到行尾，再增加rd.break；</p>
+<p>3、进去后输入命令mount，发现根为/sysroot/，并且不能写，只有ro=readonly权限；</p>
+<p>4、mount -o remount,rw /sysroot/，重新挂载，之后mount，发现有了r,w权限；</p>
+<p>5、chroot /sysroot/ 改变根；</p>
+<p>（1）echo redhat|passwd –stdin root 修改root密码为redhat，或者输入passwd，交互修改；</p>
+<p>（2）还有就是先cp一份，然后修改/etc/shadow文件</p>
+<p>6、touch /.autorelabel 这句是为了selinux生效，重新扫描磁盘标签，autorelabel 是一个隐藏文件，前面有点，而且一定不能写错，不然reboot时会卡住。</p>
+<p>7、ctrl+d 退出</p>
+<p>8、然后reboot</p>
+<p>至此，密码修改完成</p>
+<p>##创建、删除分区</p>
+<p>###ext4<br>选择要进行操作的磁盘：<br>fdisk /dev/sdb<br>输入m列出可执行的命令<br>输入p列出磁盘目前的分区情况</p>
+<pre><code>Command (m for help): p 
+Disk /dev/sdb: 3221 MB, 3221225472 bytes 255 heads, 63 sectors/track, 391 cylinders Units = cylinders of 16065 * 512 = 8225280 bytes 
+Device Boot Start End Blocks Id System 
+/dev/sdb1 1 1 8001 8e Linux LVM /dev/sdb2 2 26 200812+ 83 Linux
+</code></pre><p>输入d然后选择分区，删除现有分区</p>
+<p><img src="./1464097914658.png" alt="Alt text"><br>输入p，查看分区情况，确认已删除后输入n简历新的磁盘分区</p>
+<p><img src="./1464097954320.png" alt="Alt text"></p>
+<p>##（自动）挂载、卸载和使用LUKS-encrypted 文件系统<br>cryptsetup luksFormat /dev/sdb<br>cryptsetup luksOpen /dev/sdb cryp<br>dd if=/dev/urandom of=/root/keyfile1 bs=1024 count=4<br>chmod 0400 /root/keyfile1<br>cryptsetup luksAddKey /dev/sdb /root/keyfile1<br>mkfs.xfs /dev/mapper/cryp<br>echo “/dev/mapper/cryp /mnt/1t xfs defaults 1 2” &gt;&gt; /etc/fstab<br>echo “cryp /dev/sdb /root/keyfile1 luks” &gt;&gt; /etc/crypttab<br>mount -a</p>
+<p>##GPT TO MBR</p>
+
+            </div>
+
+            <!-- Comments -->
+            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                
+    <hr />
+    <h3>Comentarios:</h3>
+    <div id="disqus_thread">
+        <noscript>Please enable JavaScript to view the <a href="//disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+    </div>
+
+
+
+            </div>
+        </div>
+    </div>
+</article>
+
+    <!-- Footer -->
+    <hr />
+
+<!-- Footer -->
+<footer>
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                <ul class="list-inline text-center">
+                    <li>
+                        <a href="" target="_blank">
+                            <span class="fa-stack fa-lg">
+                                <i class="fa fa-circle fa-stack-2x"></i>
+                                <i class="fa fa-twitter fa-stack-1x fa-inverse"></i>
+                            </span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="" target="_blank">
+                            <span class="fa-stack fa-lg">
+                                <i class="fa fa-circle fa-stack-2x"></i>
+                                <i class="fa fa-facebook fa-stack-1x fa-inverse"></i>
+                            </span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="https://github.com/nikeneo/" target="_blank">
+                            <span class="fa-stack fa-lg">
+                                <i class="fa fa-circle fa-stack-2x"></i>
+                                <i class="fa fa-github fa-stack-1x fa-inverse"></i>
+                            </span>
+                        </a>
+                    </li>
+                </ul>
+                <p class="copyright text-muted">Original Theme <a target="_blank" href="http://startbootstrap.com/template-overviews/clean-blog/">Clean Blog</a> from <a href="http://startbootstrap.com/" target="_blank">Start Bootstrap</a></p>
+                <p class="copyright text-muted">Adapted for <a target="_blank" href="https://hexo.io/">Hexo</a> by Nikeneo</p>
+            </div>
+        </div>
+    </div>
+</footer>
+
+
+    <!-- After footer scripts -->
+    
+<!-- jQuery -->
+<script src="/js/jquery.min.js"></script>
+
+<!-- Bootstrap -->
+<script src="/bootstrap/js/bootstrap.min.js"></script>
+
+<!-- Gallery -->
+<script src="//cdn.rawgit.com/noelboss/featherlight/1.3.5/release/featherlight.min.js" type="text/javascript" charset="utf-8"></script>
+
+<!-- Disqus Comments -->
+
+<script type="text/javascript">
+    var disqus_shortname = 'nikeneoxyz';
+
+    (function(){
+        var dsq = document.createElement('script');
+        dsq.type = 'text/javascript';
+        dsq.async = true;
+        dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    }());
+</script>
+
+
+</body>
+
+</html>
