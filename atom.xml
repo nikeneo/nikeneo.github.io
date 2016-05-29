@@ -57,7 +57,7 @@
     <link href="http://yoursite.com/2016/05/25/RHCSA%20Note/"/>
     <id>http://yoursite.com/2016/05/25/RHCSA Note/</id>
     <published>2016-05-25T01:36:35.000Z</published>
-    <updated>2016-05-25T02:12:13.686Z</updated>
+    <updated>2016-05-29T11:23:33.837Z</updated>
     
     <content type="html">&lt;p&gt;@(我的第一个笔记本)[Linux, RHCSA]&lt;/p&gt;
 &lt;h1 id=&quot;RHCSA-Note&quot;&gt;&lt;a href=&quot;#RHCSA-Note&quot; class=&quot;headerlink&quot; title=&quot;RHCSA Note&quot;&gt;&lt;/a&gt;RHCSA Note&lt;/h1&gt;&lt;h2 id=&quot;输入输出重定向&quot;&gt;&lt;a href=&quot;#输入输出重定向&quot; class=&quot;headerlink&quot; title=&quot;输入输出重定向&quot;&gt;&lt;/a&gt;输入输出重定向&lt;/h2&gt;&lt;p&gt;重定向操作符可以用来将命令输入和输出数据流从默认位置重定向到其他位置，其输入输出数据流的位置称为&lt;strong&gt;句柄&lt;/strong&gt;，常见的句柄有三种，每种句柄有句柄、句柄代号、句柄描述三种属性：&lt;/p&gt;
@@ -206,8 +206,8 @@ Disk /dev/sdb: 3221 MB, 3221225472 bytes 255 heads, 63 sectors/track, 391 cylind
 Device Boot Start End Blocks Id System 
 /dev/sdb1 1 1 8001 8e Linux LVM /dev/sdb2 2 26 200812+ 83 Linux
 &lt;/code&gt;&lt;/pre&gt;&lt;p&gt;输入d然后选择分区，删除现有分区&lt;/p&gt;
-&lt;p&gt;&lt;img src=&quot;../../1464097914658.png&quot; alt=&quot;Alt text&quot;&gt;&lt;br&gt;输入p，查看分区情况，确认已删除后输入n简历新的磁盘分区&lt;/p&gt;
-&lt;p&gt;&lt;img src=&quot;../../1464097954320.png&quot; alt=&quot;Alt text&quot;&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;/images/1464097914658.png&quot; alt=&quot;Alt text&quot;&gt;&lt;br&gt;输入p，查看分区情况，确认已删除后输入n简历新的磁盘分区&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;/images/1464097954320.png&quot; alt=&quot;Alt text&quot;&gt;&lt;/p&gt;
 &lt;p&gt;##（自动）挂载、卸载和使用LUKS-encrypted 文件系统&lt;br&gt;cryptsetup luksFormat /dev/sdb&lt;br&gt;cryptsetup luksOpen /dev/sdb cryp&lt;br&gt;dd if=/dev/urandom of=/root/keyfile1 bs=1024 count=4&lt;br&gt;chmod 0400 /root/keyfile1&lt;br&gt;cryptsetup luksAddKey /dev/sdb /root/keyfile1&lt;br&gt;mkfs.xfs /dev/mapper/cryp&lt;br&gt;echo “/dev/mapper/cryp /mnt/1t xfs defaults 1 2” &amp;gt;&amp;gt; /etc/fstab&lt;br&gt;echo “cryp /dev/sdb /root/keyfile1 luks” &amp;gt;&amp;gt; /etc/crypttab&lt;br&gt;mount -a&lt;/p&gt;
 &lt;h2 id=&quot;GPT-TO-MBR&quot;&gt;&lt;a href=&quot;#GPT-TO-MBR&quot; class=&quot;headerlink&quot; title=&quot;GPT TO MBR&quot;&gt;&lt;/a&gt;GPT TO MBR&lt;/h2&gt;</content>
     
