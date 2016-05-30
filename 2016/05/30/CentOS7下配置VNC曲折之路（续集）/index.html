@@ -10,6 +10,9 @@
 
     <!--Description-->
     
+        <meta name="description" content="@(大二下项目笔记)[CentOS|运维]
+CentOS7下配置VNC曲折之路（续集）继续昨天的文，因为项目要使用的业务软件为oracle系列，这些商业软件安全性相对较好，其中一点就是只能使用低权限账号进行软件管理操作，在使用之前的教程配置好vnc后，我们只能启动root账户的vnc服务，添加其他的">
+    
 
     <!--Author-->
     
@@ -17,6 +20,8 @@
     
 
     <!--Open Graph Title-->
+    
+        <meta property="og:title" content="CentOS7下配置VNC曲折之路(续集)"/>
     
 
     <!--Open Graph Site Name-->
@@ -29,7 +34,7 @@
 
     <!-- Title -->
     
-    <title>Archiv: 2016/5 - Nikeneo&#39;s TechZone</title>
+    <title>CentOS7下配置VNC曲折之路(续集) - Nikeneo&#39;s TechZone</title>
 
     <!-- Bootstrap Core CSS -->
     <link rel="stylesheet" href="/bootstrap/css/bootstrap.min.css">
@@ -95,76 +100,72 @@
 </nav>
 
     <!-- Main Content -->
-    
+    <!-- Page Header -->
+<!-- Set your background image for this header in your post front-matter: cover -->
 
-<!-- Page Header -->
-<!-- Set your background image for this header in the theme's configuration: index_cover -->
 <header class="intro-header" style="background-image: url('http://ww4.sinaimg.cn/large/92c2082bjw1f336w7nb3xj21hc0rp47b.jpg')">
     <div class="container">
         <div class="row">
             <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
-                <div class="site-heading">
-                    <h1>2016/5</h1>
+                <div class="post-heading">
+                    <h1>CentOS7下配置VNC曲折之路(续集)</h1>
+                    
+                    <span class="meta">
+                        <!-- Date and Author -->
+                        
+                        2016-05-30
+                    </span>
                 </div>
             </div>
         </div>
     </div>
 </header>
 
-<!-- Main Content -->
-<div class="container">
-    <div class="row">
-        <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+<!-- Post Content -->
+<article>
+    <div class="container">
+        <div class="row">
+
+            <!-- Tags and categories -->
+           
+                <div class="col-lg-4 col-lg-offset-2 col-md-5 col-md-offset-1 post-tags">
+                    
+                        
+
+<a href="/categories/LINUX/">LINUX</a>
+
+                    
+                </div>
+                <div class="col-lg-4 col-md-5 post-categories">
+                    
+                </div>
             
-                <div class="post-preview">
-    <a href="/2016/05/30/CentOS7下配置VNC曲折之路（续集）/">
-        <h1 class="post-title archive">
-            CentOS7下配置VNC曲折之路(续集)
-        </h1>
-    </a>
-    <p class="post-meta archive">
-        <!-- Date and Author -->
-        
-        2016-05-30
-    </p>
-</div>
+
+            <!-- Gallery -->
             
-                <div class="post-preview">
-    <a href="/2016/05/29/CentOS7下配置VNC曲折之路/">
-        <h1 class="post-title archive">
-            CentOS7下配置VNC曲折之路
-        </h1>
-    </a>
-    <p class="post-meta archive">
-        <!-- Date and Author -->
-        
-        2016-05-29
-    </p>
-</div>
-            
-                <div class="post-preview">
-    <a href="/2016/05/25/RHCSA Note/">
-        <h1 class="post-title archive">
-            RHCSA 笔记
-        </h1>
-    </a>
-    <p class="post-meta archive">
-        <!-- Date and Author -->
-        
-        2016-05-25
-    </p>
-</div>
-            
-            <div class="archive-before-pagination"></div>
-            <ul class="pager">
-    
-    
-</ul>
+
+            <!-- Post Main Content -->
+            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                <p>@(大二下项目笔记)[CentOS|运维]</p>
+<h1 id="CentOS7下配置VNC曲折之路（续集）"><a href="#CentOS7下配置VNC曲折之路（续集）" class="headerlink" title="CentOS7下配置VNC曲折之路（续集）"></a>CentOS7下配置VNC曲折之路（续集）</h1><p>继续昨天的文，因为项目要使用的业务软件为oracle系列，这些商业软件安全性相对较好，其中一点就是只能使用低权限账号进行软件管理操作，在使用之前的教程配置好vnc后，我们只能启动root账户的vnc服务，添加其他的低权限账户的服务后启动时会报错，报错行和代码和昨天的一样，本来想着进了root账户后使用su - USER的方法来切换用户后安装相应的软件，结果使用此方法的话程序连安装检查都过不了，因为程序不能调用图形界面。然后我便试着注销root账户，但是在vnc下点击注销按钮后无任何反应，即使在登陆界面也无法点击按钮切换到其他的用户，试了几次过后只好作罢。<br>然后又开始了漫长的google之路，偶然间发现了一篇digitalocean里的一篇文章，链接如下<br><a href="https://www.digitalocean.com/community/tutorials/how-to-install-and-configure-vnc-remote-access-for-the-gnome-desktop-on-centos-7" target="_blank" rel="external">https://www.digitalocean.com/community/tutorials/how-to-install-and-configure-vnc-remote-access-for-the-gnome-desktop-on-centos-7</a><br>这篇文章介绍了CentOS7平台上的vnc服务搭建方法，较之前的文章个人感觉更为详细，对比它的操作步骤，关闭掉开启的vnc服务后，复制一份配置文件，端口号取3（之前的那个为2）切换到普通管理员账户下，运行vncserver，进行密码配置，重载systemd，启动服务，然后发现2号服务（root）无法启动，然后普通用户可以启动了，这个结果简直惊喜，马上联系甲方管理员添加端口，连接vnc服务，接下来的事都是顺水推舟了。<br>这个问题到底是什么原因还不清楚，但终究配置好了vnc服务，也顺利的安装好了业务软件，总算没有拖慢项目进度。。</p>
+
+            </div>
+
+            <!-- Comments -->
+            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                
+    <hr />
+    <h3>Kommentare:</h3>
+    <div id="disqus_thread">
+        <noscript>Please enable JavaScript to view the <a href="//disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+    </div>
+
+
+
+            </div>
         </div>
     </div>
-</div>
-
-
+</article>
 
     <!-- Footer -->
     <hr />
@@ -228,7 +229,7 @@
         var dsq = document.createElement('script');
         dsq.type = 'text/javascript';
         dsq.async = true;
-        dsq.src = '//' + disqus_shortname + '.disqus.com/count.js';
+        dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
         (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
     }());
 </script>

@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://yoursite.com/"/>
-  <updated>2016-05-29T12:17:52.783Z</updated>
+  <updated>2016-05-30T10:44:38.253Z</updated>
   <id>http://yoursite.com/</id>
   
   <author>
@@ -14,6 +14,29 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>CentOS7下配置VNC曲折之路(续集)</title>
+    <link href="http://yoursite.com/2016/05/30/CentOS7%E4%B8%8B%E9%85%8D%E7%BD%AEVNC%E6%9B%B2%E6%8A%98%E4%B9%8B%E8%B7%AF%EF%BC%88%E7%BB%AD%E9%9B%86%EF%BC%89/"/>
+    <id>http://yoursite.com/2016/05/30/CentOS7下配置VNC曲折之路（续集）/</id>
+    <published>2016-05-29T16:00:00.000Z</published>
+    <updated>2016-05-30T10:44:38.253Z</updated>
+    
+    <content type="html">&lt;p&gt;@(大二下项目笔记)[CentOS|运维]&lt;/p&gt;
+&lt;h1 id=&quot;CentOS7下配置VNC曲折之路（续集）&quot;&gt;&lt;a href=&quot;#CentOS7下配置VNC曲折之路（续集）&quot; class=&quot;headerlink&quot; title=&quot;CentOS7下配置VNC曲折之路（续集）&quot;&gt;&lt;/a&gt;CentOS7下配置VNC曲折之路（续集）&lt;/h1&gt;&lt;p&gt;继续昨天的文，因为项目要使用的业务软件为oracle系列，这些商业软件安全性相对较好，其中一点就是只能使用低权限账号进行软件管理操作，在使用之前的教程配置好vnc后，我们只能启动root账户的vnc服务，添加其他的低权限账户的服务后启动时会报错，报错行和代码和昨天的一样，本来想着进了root账户后使用su - USER的方法来切换用户后安装相应的软件，结果使用此方法的话程序连安装检查都过不了，因为程序不能调用图形界面。然后我便试着注销root账户，但是在vnc下点击注销按钮后无任何反应，即使在登陆界面也无法点击按钮切换到其他的用户，试了几次过后只好作罢。&lt;br&gt;然后又开始了漫长的google之路，偶然间发现了一篇digitalocean里的一篇文章，链接如下&lt;br&gt;&lt;a href=&quot;https://www.digitalocean.com/community/tutorials/how-to-install-and-configure-vnc-remote-access-for-the-gnome-desktop-on-centos-7&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;https://www.digitalocean.com/community/tutorials/how-to-install-and-configure-vnc-remote-access-for-the-gnome-desktop-on-centos-7&lt;/a&gt;&lt;br&gt;这篇文章介绍了CentOS7平台上的vnc服务搭建方法，较之前的文章个人感觉更为详细，对比它的操作步骤，关闭掉开启的vnc服务后，复制一份配置文件，端口号取3（之前的那个为2）切换到普通管理员账户下，运行vncserver，进行密码配置，重载systemd，启动服务，然后发现2号服务（root）无法启动，然后普通用户可以启动了，这个结果简直惊喜，马上联系甲方管理员添加端口，连接vnc服务，接下来的事都是顺水推舟了。&lt;br&gt;这个问题到底是什么原因还不清楚，但终究配置好了vnc服务，也顺利的安装好了业务软件，总算没有拖慢项目进度。。&lt;/p&gt;
+</content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;@(大二下项目笔记)[CentOS|运维]&lt;/p&gt;
+&lt;h1 id=&quot;CentOS7下配置VNC曲折之路（续集）&quot;&gt;&lt;a href=&quot;#CentOS7下配置VNC曲折之路（续集）&quot; class=&quot;headerlink&quot; title=&quot;CentOS7下配置VNC曲折之路（续集）
+    
+    </summary>
+    
+      <category term="LINUX" scheme="http://yoursite.com/categories/LINUX/"/>
+    
+    
+  </entry>
   
   <entry>
     <title>CentOS7下配置VNC曲折之路</title>
