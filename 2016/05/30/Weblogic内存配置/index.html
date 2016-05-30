@@ -10,6 +10,10 @@
 
     <!--Description-->
     
+        <meta name="description" content="@(大二下项目笔记)[运维|CentOS]
+Weblogic内存配置每个weblogic server都是运行在一个java虚拟机上，对weblogic的内存设置也就是对java虚拟机的内存设置，很多时候在配置域后需要手动调整内存值，在良好的配置前提下，如果内存分配少了，后果都懂。。
+MEM_ARG">
+    
 
     <!--Author-->
     
@@ -18,7 +22,7 @@
 
     <!--Open Graph Title-->
     
-        <meta property="og:title" content="Linux WEB 服务器性能优化"/>
+        <meta property="og:title" content="Weblogic内存配置"/>
     
 
     <!--Open Graph Site Name-->
@@ -31,7 +35,7 @@
 
     <!-- Title -->
     
-    <title>Linux WEB 服务器性能优化 - Nikeneo&#39;s TechZone</title>
+    <title>Weblogic内存配置 - Nikeneo&#39;s TechZone</title>
 
     <!-- Bootstrap Core CSS -->
     <link rel="stylesheet" href="/bootstrap/css/bootstrap.min.css">
@@ -105,12 +109,12 @@
         <div class="row">
             <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
                 <div class="post-heading">
-                    <h1>Linux WEB 服务器性能优化</h1>
+                    <h1>Weblogic内存配置</h1>
                     
                     <span class="meta">
                         <!-- Date and Author -->
                         
-                        2016-04-20
+                        2016-05-30
                     </span>
                 </div>
             </div>
@@ -125,13 +129,33 @@
 
             <!-- Tags and categories -->
            
+                <div class="col-lg-4 col-lg-offset-2 col-md-5 col-md-offset-1 post-tags">
+                    
+                        
+
+<a href="/categories/LINUX/">LINUX</a>
+
+                    
+                </div>
+                <div class="col-lg-4 col-md-5 post-categories">
+                    
+                </div>
+            
 
             <!-- Gallery -->
             
 
             <!-- Post Main Content -->
             <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
-                
+                <p>@(大二下项目笔记)[运维|CentOS]</p>
+<h1 id="Weblogic内存配置"><a href="#Weblogic内存配置" class="headerlink" title="Weblogic内存配置"></a>Weblogic内存配置</h1><p>每个weblogic server都是运行在一个java虚拟机上，对weblogic的内存设置也就是对java虚拟机的内存设置，很多时候在配置域后需要手动调整内存值，在良好的配置前提下，如果内存分配少了，后果都懂。。</p>
+<p>MEM_ARGS=-Xms512m -Xmx1024m -XX:MaxPermSize=128m</p>
+<p>-Xms512m表示jvm内存下限为512m </p>
+<p>-Xmx512m表示jvm内存上限为1024m </p>
+<p>-XX:MaxPermSize=128m表示永久内存为128m<br>使用vi打开/setDomainEnv.sh文件 </p>
+<p>默认的内存配置为：<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">if</span> [ <span class="string">"<span class="variable">$&#123;JAVA_VENDOR&#125;</span>"</span> = <span class="string">"Sun"</span> ] ; <span class="keyword">then</span></span><br><span class="line">　　WLS_MEM_ARGS_64BIT=<span class="string">"-Xms256m -Xmx512m"</span>　　//64位</span><br><span class="line">　　<span class="built_in">export</span> WLS_MEM_ARGS_64BIT</span><br><span class="line">　　WLS_MEM_ARGS_32BIT=<span class="string">"-Xms256m -Xmx512m"</span>　　//32位</span><br><span class="line">　　<span class="built_in">export</span> WLS_MEM_ARGS_32BIT</span><br><span class="line"><span class="keyword">else</span></span><br><span class="line">　　WLS_MEM_ARGS_64BIT=<span class="string">"-Xms512m -Xmx512m"</span></span><br><span class="line">　　<span class="built_in">export</span> WLS_MEM_ARGS_64BIT</span><br><span class="line">　　WLS_MEM_ARGS_32BIT=<span class="string">"-Xms512m -Xmx512m"</span></span><br><span class="line">　　<span class="built_in">export</span> WLS_MEM_ARGS_32BIT</span><br><span class="line"><span class="keyword">fi</span></span><br><span class="line"></span><br><span class="line"><span class="comment">#增加内存大小后：</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">if</span> [ <span class="string">"<span class="variable">$&#123;JAVA_VENDOR&#125;</span>"</span> = <span class="string">"Sun"</span> ] ; <span class="keyword">then</span></span><br><span class="line">　　WLS_MEM_ARGS_64BIT=<span class="string">"-Xms512m -Xmx1024m"</span>　　//64位</span><br><span class="line">　　<span class="built_in">export</span> WLS_MEM_ARGS_64BIT</span><br><span class="line">　　WLS_MEM_ARGS_32BIT=<span class="string">"-Xms512m -Xmx1024m"</span>　　//32位</span><br><span class="line">　　<span class="built_in">export</span> WLS_MEM_ARGS_32BIT</span><br><span class="line"><span class="keyword">else</span></span><br><span class="line">　　WLS_MEM_ARGS_64BIT=<span class="string">"-Xms512m -Xmx1024m"</span></span><br><span class="line">　　<span class="built_in">export</span> WLS_MEM_ARGS_64BIT</span><br><span class="line">　　WLS_MEM_ARGS_32BIT=<span class="string">"-Xms512m -Xmx1024m"</span></span><br><span class="line">　　<span class="built_in">export</span> WLS_MEM_ARGS_32BIT</span><br><span class="line"><span class="keyword">fi</span></span><br></pre></td></tr></table></figure></p>
+<p>修改后保存退出，重启Weblogic，完事儿。</p>
+
             </div>
 
             <!-- Comments -->
