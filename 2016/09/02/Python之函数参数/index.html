@@ -1,0 +1,238 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<!-- Head tag -->
+<head>
+
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!--Description-->
+    
+        <meta name="description" content="@(Python)[Python]
+#Python之函数参数
+##任意数量参数的函数构造1234567891011121314151617181920212223242526&amp;quot;&amp;quot;&amp;quot;def anyargs(*args, **kwargs):    print(args) ">
+    
+
+    <!--Author-->
+    
+        <meta name="author" content="Nikeneo">
+    
+
+    <!--Open Graph Title-->
+    
+
+    <!--Open Graph Site Name-->
+    <meta property="og:site_name" content="Nikeneo&#39;s TechZone"/>
+
+    <!--Page Cover-->
+    
+        <meta property="og:image" content="undefined"/>
+    
+
+    <!-- Title -->
+    
+    <title>Nikeneo&#39;s TechZone</title>
+
+    <!-- Bootstrap Core CSS -->
+    <link rel="stylesheet" href="/bootstrap/css/bootstrap.min.css">
+
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="/css/style.css">
+
+    <!-- Custom Fonts -->
+    <link href="http://maxcdn.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+    <link href='http://fonts.googleapis.com/css?family=Lora:400,700,400italic,700italic' rel='stylesheet' type='text/css'>
+    <link href='http://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800' rel='stylesheet' type='text/css'>
+
+    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+        <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+        <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+
+    <!-- Gallery -->
+    <link href="//cdn.rawgit.com/noelboss/featherlight/1.3.5/release/featherlight.min.css" type="text/css" rel="stylesheet" />
+
+    <!-- Google Analytics -->
+    
+
+
+</head>
+
+<body>
+
+    <!-- Menu -->
+    <!-- Navigation -->
+<nav class="navbar navbar-default navbar-custom navbar-fixed-top">
+    <div class="container-fluid">
+        <!-- Brand and toggle get grouped for better mobile display -->
+        <div class="navbar-header page-scroll">
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="/">Nikeneo's TechZone</a>
+        </div>
+
+        <!-- Collect the nav links, forms, and other content for toggling -->
+        <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+            <ul class="nav navbar-nav navbar-right">
+                
+                    <li>
+                        <a href="/">Home</a>
+                    </li>
+                
+                    <li>
+                        <a href="/archives">Archives</a>
+                    </li>
+                
+            </ul>
+        </div>
+        <!-- /.navbar-collapse -->
+    </div>
+    <!-- /.container -->
+</nav>
+
+    <!-- Main Content -->
+    <!-- Page Header -->
+<!-- Set your background image for this header in your post front-matter: cover -->
+
+<header class="intro-header" style="background-image: url('http://ww4.sinaimg.cn/large/92c2082bjw1f336w7nb3xj21hc0rp47b.jpg')">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                <div class="post-heading">
+                    <h1>Untitled</h1>
+                    
+                    <span class="meta">
+                        <!-- Date and Author -->
+                        
+                        2016-09-02
+                    </span>
+                </div>
+            </div>
+        </div>
+    </div>
+</header>
+
+<!-- Post Content -->
+<article>
+    <div class="container">
+        <div class="row">
+
+            <!-- Tags and categories -->
+           
+
+            <!-- Gallery -->
+            
+
+            <!-- Post Main Content -->
+            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                <p>@(Python)[Python]</p>
+<p>#Python之函数参数</p>
+<p>##任意数量参数的函数构造<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line">&quot;&quot;&quot;</span><br><span class="line">def anyargs(*args, **kwargs):</span><br><span class="line">    print(args) # A tuple</span><br><span class="line">    print(kwargs) # A dict</span><br><span class="line">使用这个函数时，所有位置参数会被放到args元组中，所有关键字参数会被放到字典kwargs中</span><br><span class="line">一个*参数只能出现在函数定义中最后一个位置参数后面，而 **参数只能出现在最后一个参数。 有一点要注意的是，在*参数后面仍然可以定义其他参数。</span><br><span class="line"></span><br><span class="line">def a(x, *args, y):</span><br><span class="line">    pass</span><br><span class="line"></span><br><span class="line">def b(x, *args, y, **kwargs):</span><br><span class="line">    pass</span><br><span class="line">这种参数就是我们所说的强制关键字参数</span><br><span class="line">&quot;&quot;&quot;</span><br><span class="line">import html</span><br><span class="line">def make_element(name, value, **attrs):</span><br><span class="line">    keyvals = [&apos;%s = &quot;%s&quot;&apos; % item for item in attrs.items()]</span><br><span class="line">    attr_str = &apos;&apos;.join(keyvals)</span><br><span class="line">    element = &apos;&lt;&#123;name&#125; &#123;attrs&#125;&gt;&#123;value&#125;&lt;/&#123;name&#125;&gt;&apos;.format(</span><br><span class="line">        name = name,</span><br><span class="line">        attrs = attr_str,</span><br><span class="line">        value = html.escape(value)</span><br><span class="line">    )</span><br><span class="line">    return element</span><br><span class="line">print(make_element(&apos;item&apos;, &apos;Albatross&apos;, size = &apos;large&apos;, quantity = 6))</span><br><span class="line">print(make_element(&apos;p&apos;, &apos;&lt;spam&gt;&apos;))</span><br></pre></td></tr></table></figure></p>
+<p>##返回多个值的函数<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">&gt;&gt;&gt; def myfun():</span><br><span class="line">&gt;&gt;&gt; #返回一个元组</span><br><span class="line">... return 1, 2, 3</span><br><span class="line">...</span><br><span class="line">&gt;&gt;&gt; a, b, c = myfun()</span><br><span class="line">&gt;&gt;&gt; a</span><br><span class="line">1</span><br><span class="line">&gt;&gt;&gt; b</span><br><span class="line">2</span><br><span class="line">&gt;&gt;&gt; c</span><br><span class="line">3</span><br></pre></td></tr></table></figure></p>
+<p>##定义函数的默认参数<br>函数的默认参数的值仅仅在函数定义的时候赋值一次，之后若通过变量改变默认参数的值则仍沿用之前的值<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">def function(a, b = 23):</span><br><span class="line">    pass</span><br><span class="line">function(1) #a = 1, b = 23</span><br><span class="line">function(1, 2) #a = 1, b = 2</span><br></pre></td></tr></table></figure></p>
+<p>如果默认参数是一个可修改的容器，比如一个列表、一个字典或者集合，可以使用None作为默认值<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">def function(a, b = None):</span><br><span class="line">    if b is None:</span><br><span class="line">        b = []</span><br><span class="line">    pass</span><br></pre></td></tr></table></figure></p>
+<p>如果你不想提供一个默认值，只是想检查一下是否有参数传进来，则可以：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">_no_value = object()</span><br><span class="line">def function(a, b = _no_value):</span><br><span class="line">    if b is _no_value:</span><br><span class="line">        print(&apos;No b value supplied&apos;)</span><br></pre></td></tr></table></figure></p>
+<p>在测试None值时使用 is 操作符是很重要的，也是这种方案的关键点。 有时候大家会犯下下面这样的错误：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">def spam(a, b=None):</span><br><span class="line">    if not b: # NO! Use &apos;b is None&apos; instead</span><br><span class="line">        b = []</span><br><span class="line">    ...</span><br></pre></td></tr></table></figure></p>
+<p>这么写的问题在于尽管None值确实是被当成False， 但是还有其他的对象(比如长度为0的字符串、列表、元组、字典等)都会被当做False。 因此，上面的代码会误将一些其他输入也当成是没有输入。比如：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">&gt;&gt;&gt; spam(1) # OK</span><br><span class="line">&gt;&gt;&gt; x = []</span><br><span class="line">&gt;&gt;&gt; spam(1, x) # Silent error. x value overwritten by default</span><br><span class="line">&gt;&gt;&gt; spam(1, 0) # Silent error. 0 ignored</span><br><span class="line">&gt;&gt;&gt; spam(1, &apos;&apos;) # Silent error. &apos;&apos; ignored</span><br><span class="line">&gt;&gt;&gt;</span><br></pre></td></tr></table></figure></p>
+<p>###关于object()<br>object()是python中所有类的基类，你可以创建object类的实例，但是这些实例没什么实际用处，因为它斌没有任何有用的方法，也没有任何实例数据，唯一能做的就是测试同一性。</p>
+<p>##lambda<br>当一些函数表达式很简单、仅需要计算一个表达式的时候，可以使用lambda表达式来代替：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">add = lambda x, y: x + y</span><br><span class="line">print(add(2, 3))</span><br><span class="line">print(add(&apos;hello&apos;, &apos;world&apos;))</span><br></pre></td></tr></table></figure></p>
+<p>上面代码的效果和下面代码的效果相同：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">def add(x, y):</span><br><span class="line">    return x + y</span><br><span class="line">print(add(2, 3))</span><br><span class="line">print(add(&apos;hello&apos;, &apos;world&apos;))</span><br></pre></td></tr></table></figure></p>
+<p>lambda表达式典型的使用场景是排序或数据reduce<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">names = [&apos;David Beazley&apos;, &apos;Brian Jones&apos;, &apos;Raymond Hettinger&apos;, &apos;Ned Batchelder&apos;]</span><br><span class="line">sorted(names, key = lambda name: name.split( )[-1].lower())</span><br></pre></td></tr></table></figure></p>
+
+            </div>
+
+            <!-- Comments -->
+            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                
+    <hr />
+    <h3>Kommentare:</h3>
+    <div id="disqus_thread">
+        <noscript>Please enable JavaScript to view the <a href="//disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+    </div>
+
+
+
+            </div>
+        </div>
+    </div>
+</article>
+
+    <!-- Footer -->
+    <hr />
+
+<!-- Footer -->
+<footer>
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                <ul class="list-inline text-center">
+                    <li>
+                        <a href="" target="_blank">
+                            <span class="fa-stack fa-lg">
+                                <i class="fa fa-circle fa-stack-2x"></i>
+                                <i class="fa fa-twitter fa-stack-1x fa-inverse"></i>
+                            </span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="" target="_blank">
+                            <span class="fa-stack fa-lg">
+                                <i class="fa fa-circle fa-stack-2x"></i>
+                                <i class="fa fa-facebook fa-stack-1x fa-inverse"></i>
+                            </span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="https://github.com/nikeneo/" target="_blank">
+                            <span class="fa-stack fa-lg">
+                                <i class="fa fa-circle fa-stack-2x"></i>
+                                <i class="fa fa-github fa-stack-1x fa-inverse"></i>
+                            </span>
+                        </a>
+                    </li>
+                </ul>
+                <p class="copyright text-muted">Original Theme <a target="_blank" href="http://startbootstrap.com/template-overviews/clean-blog/">Clean Blog</a> from <a href="http://startbootstrap.com/" target="_blank">Start Bootstrap</a></p>
+                <p class="copyright text-muted">Adapted for <a target="_blank" href="https://hexo.io/">Hexo</a> by Nikeneo</p>
+            </div>
+        </div>
+    </div>
+</footer>
+
+
+    <!-- After footer scripts -->
+    
+<!-- jQuery -->
+<script src="/js/jquery.min.js"></script>
+
+<!-- Bootstrap -->
+<script src="/bootstrap/js/bootstrap.min.js"></script>
+
+<!-- Gallery -->
+<script src="//cdn.rawgit.com/noelboss/featherlight/1.3.5/release/featherlight.min.js" type="text/javascript" charset="utf-8"></script>
+
+<!-- Disqus Comments -->
+
+<script type="text/javascript">
+    var disqus_shortname = 'nikeneoxyz';
+
+    (function(){
+        var dsq = document.createElement('script');
+        dsq.type = 'text/javascript';
+        dsq.async = true;
+        dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    }());
+</script>
+
+
+</body>
+
+</html>
