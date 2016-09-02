@@ -11,8 +11,7 @@
     <!--Description-->
     
         <meta name="description" content="@(Python)[Python]
-#Python之函数参数
-##任意数量参数的函数构造1234567891011121314151617181920212223242526&amp;quot;&amp;quot;&amp;quot;def anyargs(*args, **kwargs):    print(args) ">
+Python之函数参数任意数量参数的函数构造1234567891011121314151617181920212223242526&amp;quot;&amp;quot;&amp;quot;def anyargs(*args, **kwargs):    print(args) # A ">
     
 
     <!--Author-->
@@ -21,6 +20,8 @@
     
 
     <!--Open Graph Title-->
+    
+        <meta property="og:title" content="Python之函数参数"/>
     
 
     <!--Open Graph Site Name-->
@@ -33,7 +34,7 @@
 
     <!-- Title -->
     
-    <title>Nikeneo&#39;s TechZone</title>
+    <title>Python之函数参数 - Nikeneo&#39;s TechZone</title>
 
     <!-- Bootstrap Core CSS -->
     <link rel="stylesheet" href="/bootstrap/css/bootstrap.min.css">
@@ -107,7 +108,7 @@
         <div class="row">
             <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
                 <div class="post-heading">
-                    <h1>Untitled</h1>
+                    <h1>Python之函数参数</h1>
                     
                     <span class="meta">
                         <!-- Date and Author -->
@@ -127,6 +128,18 @@
 
             <!-- Tags and categories -->
            
+                <div class="col-lg-4 col-lg-offset-2 col-md-5 col-md-offset-1 post-tags">
+                    
+                        
+
+<a href="/categories/Python/">Python</a>
+
+                    
+                </div>
+                <div class="col-lg-4 col-md-5 post-categories">
+                    
+                </div>
+            
 
             <!-- Gallery -->
             
@@ -134,16 +147,15 @@
             <!-- Post Main Content -->
             <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
                 <p>@(Python)[Python]</p>
-<p>#Python之函数参数</p>
-<p>##任意数量参数的函数构造<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line">&quot;&quot;&quot;</span><br><span class="line">def anyargs(*args, **kwargs):</span><br><span class="line">    print(args) # A tuple</span><br><span class="line">    print(kwargs) # A dict</span><br><span class="line">使用这个函数时，所有位置参数会被放到args元组中，所有关键字参数会被放到字典kwargs中</span><br><span class="line">一个*参数只能出现在函数定义中最后一个位置参数后面，而 **参数只能出现在最后一个参数。 有一点要注意的是，在*参数后面仍然可以定义其他参数。</span><br><span class="line"></span><br><span class="line">def a(x, *args, y):</span><br><span class="line">    pass</span><br><span class="line"></span><br><span class="line">def b(x, *args, y, **kwargs):</span><br><span class="line">    pass</span><br><span class="line">这种参数就是我们所说的强制关键字参数</span><br><span class="line">&quot;&quot;&quot;</span><br><span class="line">import html</span><br><span class="line">def make_element(name, value, **attrs):</span><br><span class="line">    keyvals = [&apos;%s = &quot;%s&quot;&apos; % item for item in attrs.items()]</span><br><span class="line">    attr_str = &apos;&apos;.join(keyvals)</span><br><span class="line">    element = &apos;&lt;&#123;name&#125; &#123;attrs&#125;&gt;&#123;value&#125;&lt;/&#123;name&#125;&gt;&apos;.format(</span><br><span class="line">        name = name,</span><br><span class="line">        attrs = attr_str,</span><br><span class="line">        value = html.escape(value)</span><br><span class="line">    )</span><br><span class="line">    return element</span><br><span class="line">print(make_element(&apos;item&apos;, &apos;Albatross&apos;, size = &apos;large&apos;, quantity = 6))</span><br><span class="line">print(make_element(&apos;p&apos;, &apos;&lt;spam&gt;&apos;))</span><br></pre></td></tr></table></figure></p>
-<p>##返回多个值的函数<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">&gt;&gt;&gt; def myfun():</span><br><span class="line">&gt;&gt;&gt; #返回一个元组</span><br><span class="line">... return 1, 2, 3</span><br><span class="line">...</span><br><span class="line">&gt;&gt;&gt; a, b, c = myfun()</span><br><span class="line">&gt;&gt;&gt; a</span><br><span class="line">1</span><br><span class="line">&gt;&gt;&gt; b</span><br><span class="line">2</span><br><span class="line">&gt;&gt;&gt; c</span><br><span class="line">3</span><br></pre></td></tr></table></figure></p>
-<p>##定义函数的默认参数<br>函数的默认参数的值仅仅在函数定义的时候赋值一次，之后若通过变量改变默认参数的值则仍沿用之前的值<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">def function(a, b = 23):</span><br><span class="line">    pass</span><br><span class="line">function(1) #a = 1, b = 23</span><br><span class="line">function(1, 2) #a = 1, b = 2</span><br></pre></td></tr></table></figure></p>
+<h1 id="Python之函数参数"><a href="#Python之函数参数" class="headerlink" title="Python之函数参数"></a>Python之函数参数</h1><h2 id="任意数量参数的函数构造"><a href="#任意数量参数的函数构造" class="headerlink" title="任意数量参数的函数构造"></a>任意数量参数的函数构造</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line">&quot;&quot;&quot;</span><br><span class="line">def anyargs(*args, **kwargs):</span><br><span class="line">    print(args) # A tuple</span><br><span class="line">    print(kwargs) # A dict</span><br><span class="line">使用这个函数时，所有位置参数会被放到args元组中，所有关键字参数会被放到字典kwargs中</span><br><span class="line">一个*参数只能出现在函数定义中最后一个位置参数后面，而 **参数只能出现在最后一个参数。 有一点要注意的是，在*参数后面仍然可以定义其他参数。</span><br><span class="line"></span><br><span class="line">def a(x, *args, y):</span><br><span class="line">    pass</span><br><span class="line"></span><br><span class="line">def b(x, *args, y, **kwargs):</span><br><span class="line">    pass</span><br><span class="line">这种参数就是我们所说的强制关键字参数</span><br><span class="line">&quot;&quot;&quot;</span><br><span class="line">import html</span><br><span class="line">def make_element(name, value, **attrs):</span><br><span class="line">    keyvals = [&apos;%s = &quot;%s&quot;&apos; % item for item in attrs.items()]</span><br><span class="line">    attr_str = &apos;&apos;.join(keyvals)</span><br><span class="line">    element = &apos;&lt;&#123;name&#125; &#123;attrs&#125;&gt;&#123;value&#125;&lt;/&#123;name&#125;&gt;&apos;.format(</span><br><span class="line">        name = name,</span><br><span class="line">        attrs = attr_str,</span><br><span class="line">        value = html.escape(value)</span><br><span class="line">    )</span><br><span class="line">    return element</span><br><span class="line">print(make_element(&apos;item&apos;, &apos;Albatross&apos;, size = &apos;large&apos;, quantity = 6))</span><br><span class="line">print(make_element(&apos;p&apos;, &apos;&lt;spam&gt;&apos;))</span><br></pre></td></tr></table></figure>
+<h2 id="返回多个值的函数"><a href="#返回多个值的函数" class="headerlink" title="返回多个值的函数"></a>返回多个值的函数</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">&gt;&gt;&gt; def myfun():</span><br><span class="line">&gt;&gt;&gt; #返回一个元组</span><br><span class="line">... return 1, 2, 3</span><br><span class="line">...</span><br><span class="line">&gt;&gt;&gt; a, b, c = myfun()</span><br><span class="line">&gt;&gt;&gt; a</span><br><span class="line">1</span><br><span class="line">&gt;&gt;&gt; b</span><br><span class="line">2</span><br><span class="line">&gt;&gt;&gt; c</span><br><span class="line">3</span><br></pre></td></tr></table></figure>
+<h2 id="定义函数的默认参数"><a href="#定义函数的默认参数" class="headerlink" title="定义函数的默认参数"></a>定义函数的默认参数</h2><p>函数的默认参数的值仅仅在函数定义的时候赋值一次，之后若通过变量改变默认参数的值则仍沿用之前的值<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">def function(a, b = 23):</span><br><span class="line">    pass</span><br><span class="line">function(1) #a = 1, b = 23</span><br><span class="line">function(1, 2) #a = 1, b = 2</span><br></pre></td></tr></table></figure></p>
 <p>如果默认参数是一个可修改的容器，比如一个列表、一个字典或者集合，可以使用None作为默认值<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">def function(a, b = None):</span><br><span class="line">    if b is None:</span><br><span class="line">        b = []</span><br><span class="line">    pass</span><br></pre></td></tr></table></figure></p>
 <p>如果你不想提供一个默认值，只是想检查一下是否有参数传进来，则可以：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">_no_value = object()</span><br><span class="line">def function(a, b = _no_value):</span><br><span class="line">    if b is _no_value:</span><br><span class="line">        print(&apos;No b value supplied&apos;)</span><br></pre></td></tr></table></figure></p>
 <p>在测试None值时使用 is 操作符是很重要的，也是这种方案的关键点。 有时候大家会犯下下面这样的错误：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">def spam(a, b=None):</span><br><span class="line">    if not b: # NO! Use &apos;b is None&apos; instead</span><br><span class="line">        b = []</span><br><span class="line">    ...</span><br></pre></td></tr></table></figure></p>
 <p>这么写的问题在于尽管None值确实是被当成False， 但是还有其他的对象(比如长度为0的字符串、列表、元组、字典等)都会被当做False。 因此，上面的代码会误将一些其他输入也当成是没有输入。比如：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">&gt;&gt;&gt; spam(1) # OK</span><br><span class="line">&gt;&gt;&gt; x = []</span><br><span class="line">&gt;&gt;&gt; spam(1, x) # Silent error. x value overwritten by default</span><br><span class="line">&gt;&gt;&gt; spam(1, 0) # Silent error. 0 ignored</span><br><span class="line">&gt;&gt;&gt; spam(1, &apos;&apos;) # Silent error. &apos;&apos; ignored</span><br><span class="line">&gt;&gt;&gt;</span><br></pre></td></tr></table></figure></p>
-<p>###关于object()<br>object()是python中所有类的基类，你可以创建object类的实例，但是这些实例没什么实际用处，因为它斌没有任何有用的方法，也没有任何实例数据，唯一能做的就是测试同一性。</p>
-<p>##lambda<br>当一些函数表达式很简单、仅需要计算一个表达式的时候，可以使用lambda表达式来代替：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">add = lambda x, y: x + y</span><br><span class="line">print(add(2, 3))</span><br><span class="line">print(add(&apos;hello&apos;, &apos;world&apos;))</span><br></pre></td></tr></table></figure></p>
+<h3 id="关于object"><a href="#关于object" class="headerlink" title="关于object()"></a>关于object()</h3><p>object()是python中所有类的基类，你可以创建object类的实例，但是这些实例没什么实际用处，因为它斌没有任何有用的方法，也没有任何实例数据，唯一能做的就是测试同一性。</p>
+<h2 id="lambda"><a href="#lambda" class="headerlink" title="lambda"></a>lambda</h2><p>当一些函数表达式很简单、仅需要计算一个表达式的时候，可以使用lambda表达式来代替：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">add = lambda x, y: x + y</span><br><span class="line">print(add(2, 3))</span><br><span class="line">print(add(&apos;hello&apos;, &apos;world&apos;))</span><br></pre></td></tr></table></figure></p>
 <p>上面代码的效果和下面代码的效果相同：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">def add(x, y):</span><br><span class="line">    return x + y</span><br><span class="line">print(add(2, 3))</span><br><span class="line">print(add(&apos;hello&apos;, &apos;world&apos;))</span><br></pre></td></tr></table></figure></p>
 <p>lambda表达式典型的使用场景是排序或数据reduce<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">names = [&apos;David Beazley&apos;, &apos;Brian Jones&apos;, &apos;Raymond Hettinger&apos;, &apos;Ned Batchelder&apos;]</span><br><span class="line">sorted(names, key = lambda name: name.split( )[-1].lower())</span><br></pre></td></tr></table></figure></p>
 

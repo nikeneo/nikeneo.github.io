@@ -11,8 +11,8 @@
     <!--Description-->
     
         <meta name="description" content="@(Linux程序设计)[Shell编程]
-#Shell——函数123function_name () &amp;#123;	statements&amp;#125;
-a simple function example123456789101112131415161718192021222324#!/bin/bas">
+Shell——函数123function_name () &amp;#123;	statements&amp;#125;
+a simple function example123456789101112131415161718192021222324#!/bin/bash">
     
 
     <!--Author-->
@@ -21,6 +21,8 @@ a simple function example123456789101112131415161718192021222324#!/bin/bas">
     
 
     <!--Open Graph Title-->
+    
+        <meta property="og:title" content="Shell——函数"/>
     
 
     <!--Open Graph Site Name-->
@@ -33,7 +35,7 @@ a simple function example123456789101112131415161718192021222324#!/bin/bas">
 
     <!-- Title -->
     
-    <title>Nikeneo&#39;s TechZone</title>
+    <title>Shell——函数 - Nikeneo&#39;s TechZone</title>
 
     <!-- Bootstrap Core CSS -->
     <link rel="stylesheet" href="/bootstrap/css/bootstrap.min.css">
@@ -107,7 +109,7 @@ a simple function example123456789101112131415161718192021222324#!/bin/bas">
         <div class="row">
             <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
                 <div class="post-heading">
-                    <h1>Untitled</h1>
+                    <h1>Shell——函数</h1>
                     
                     <span class="meta">
                         <!-- Date and Author -->
@@ -127,6 +129,18 @@ a simple function example123456789101112131415161718192021222324#!/bin/bas">
 
             <!-- Tags and categories -->
            
+                <div class="col-lg-4 col-lg-offset-2 col-md-5 col-md-offset-1 post-tags">
+                    
+                        
+
+<a href="/categories/Linux/">Linux</a>
+
+                    
+                </div>
+                <div class="col-lg-4 col-md-5 post-categories">
+                    
+                </div>
+            
 
             <!-- Gallery -->
             
@@ -134,7 +148,7 @@ a simple function example123456789101112131415161718192021222324#!/bin/bas">
             <!-- Post Main Content -->
             <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
                 <p>@(Linux程序设计)[Shell编程]</p>
-<p>#Shell——函数<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">function_name () &#123;</span><br><span class="line">	statements</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<h1 id="Shell——函数"><a href="#Shell——函数" class="headerlink" title="Shell——函数"></a>Shell——函数</h1><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">function_name () &#123;</span><br><span class="line">	statements</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <p>a simple function example<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line">#!/bin/bash</span><br><span class="line">yes_or_no() &#123;</span><br><span class="line">        echo &quot;Is your name $* ?&quot;</span><br><span class="line">        while true</span><br><span class="line">        do</span><br><span class="line">                echo -n &quot;Enter yes or no&quot;</span><br><span class="line">                read x</span><br><span class="line">                case &quot;$x&quot; in</span><br><span class="line">                        y | yes )       return 0;;</span><br><span class="line">                        n | no )        return 1;;</span><br><span class="line">                        * )             echo &quot;Answer yes or no please!&quot;;;</span><br><span class="line">                esac</span><br><span class="line">        done</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">echo &quot;Original parameters are $*&quot;</span><br><span class="line">if yes_or_no &quot;$1&quot;</span><br><span class="line">then</span><br><span class="line">        echo &quot;Hi $1, nice time&quot;</span><br><span class="line">else</span><br><span class="line">        echo &quot;Never mind&quot;</span><br><span class="line">fi</span><br><span class="line"></span><br><span class="line">exit 0</span><br></pre></td></tr></table></figure></p>
 
             </div>

@@ -11,7 +11,7 @@
     <!--Description-->
     
         <meta name="description" content="@(大二下项目笔记)[VM]
-#通过U盘安装VMware ESXi 6实验室有一台配有32g内存的服务器，为使其能够物尽其用，准备在服务器上搭建虚拟化平台，初步选定了VMware ESXi 6。最开始按照惯例，从VMware官网下载最新的ISO镜像，然后在本地使用win32diskimager刻录I">
+通过U盘安装VMware ESXi 6实验室有一台配有32g内存的服务器，为使其能够物尽其用，准备在服务器上搭建虚拟化平台，初步选定了VMware ESXi 6。最开始按照惯例，从VMware官网下载最新的ISO镜像，然后在本地使用win32diskimager刻录IS">
     
 
     <!--Author-->
@@ -20,6 +20,8 @@
     
 
     <!--Open Graph Title-->
+    
+        <meta property="og:title" content="通过U盘安装VMware ESXi 6"/>
     
 
     <!--Open Graph Site Name-->
@@ -32,7 +34,7 @@
 
     <!-- Title -->
     
-    <title>Nikeneo&#39;s TechZone</title>
+    <title>通过U盘安装VMware ESXi 6 - Nikeneo&#39;s TechZone</title>
 
     <!-- Bootstrap Core CSS -->
     <link rel="stylesheet" href="/bootstrap/css/bootstrap.min.css">
@@ -106,7 +108,7 @@
         <div class="row">
             <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
                 <div class="post-heading">
-                    <h1>Untitled</h1>
+                    <h1>通过U盘安装VMware ESXi 6</h1>
                     
                     <span class="meta">
                         <!-- Date and Author -->
@@ -126,6 +128,18 @@
 
             <!-- Tags and categories -->
            
+                <div class="col-lg-4 col-lg-offset-2 col-md-5 col-md-offset-1 post-tags">
+                    
+                        
+
+<a href="/categories/Linux/">Linux</a>
+
+                    
+                </div>
+                <div class="col-lg-4 col-md-5 post-categories">
+                    
+                </div>
+            
 
             <!-- Gallery -->
             
@@ -133,14 +147,14 @@
             <!-- Post Main Content -->
             <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
                 <p>@(大二下项目笔记)[VM]</p>
-<p>#通过U盘安装VMware ESXi 6<br>实验室有一台配有32g内存的服务器，为使其能够物尽其用，准备在服务器上搭建虚拟化平台，初步选定了VMware ESXi 6。<br>最开始按照惯例，从VMware官网下载最新的ISO镜像，然后在本地使用win32diskimager刻录ISO，但此法制作的启动U盘尝试多次并不能引导系统，于是google了ESXi的安装U盘的制作方法，特此整理如下：</p>
-<p>##前奏<br>官方文档指明需要在Linux操作系统下制作安装U盘，并且系统内需要安装syslinux软件包和dosfstools软件包，两个软件包均可使用yum来安装，安装好后进入安装U盘的制作步骤</p>
-<p>##step1<br>插入U盘，输入</p>
+<h1 id="通过U盘安装VMware-ESXi-6"><a href="#通过U盘安装VMware-ESXi-6" class="headerlink" title="通过U盘安装VMware ESXi 6"></a>通过U盘安装VMware ESXi 6</h1><p>实验室有一台配有32g内存的服务器，为使其能够物尽其用，准备在服务器上搭建虚拟化平台，初步选定了VMware ESXi 6。<br>最开始按照惯例，从VMware官网下载最新的ISO镜像，然后在本地使用win32diskimager刻录ISO，但此法制作的启动U盘尝试多次并不能引导系统，于是google了ESXi的安装U盘的制作方法，特此整理如下：</p>
+<h2 id="前奏"><a href="#前奏" class="headerlink" title="前奏"></a>前奏</h2><p>官方文档指明需要在Linux操作系统下制作安装U盘，并且系统内需要安装syslinux软件包和dosfstools软件包，两个软件包均可使用yum来安装，安装好后进入安装U盘的制作步骤</p>
+<h2 id="step1"><a href="#step1" class="headerlink" title="step1"></a>step1</h2><p>插入U盘，输入</p>
 <pre><code>tail -f /var/log/message
 </code></pre><p>查看当前的日志信息，可以看到以下类似的信息</p>
 <pre><code>Sep 25 13:25:23 linux kernel:[  712.447080] sd 3:0:0:0:[sdb] Attached SCSI removable disk
 </code></pre><p>在示例中，可以看到U盘用sdb加以标注，如果你的电脑中有多个存储设备，U盘的代号也可能是sdc之类的。</p>
-<p>##step2<br>在U盘上建立分区表</p>
+<h2 id="step2"><a href="#step2" class="headerlink" title="step2"></a>step2</h2><p>在U盘上建立分区表</p>
 <pre><code>fdisk /dev/sdb
 </code></pre><ul>
 <li>输入【d】删除已存在的分区</li>
@@ -153,25 +167,25 @@
 <li><p>输入【w】保存并退出</p>
 </li>
 </ul>
-<p>##step3<br>使用FAT32格式格式化U盘</p>
+<h2 id="step3"><a href="#step3" class="headerlink" title="step3"></a>step3</h2><p>使用FAT32格式格式化U盘</p>
 <pre><code>mkfs.vfat -F 32 -n USB /dev/sdb1
-</code></pre><p>##step4<br>运行下列命令</p>
+</code></pre><h2 id="step4"><a href="#step4" class="headerlink" title="step4"></a>step4</h2><p>运行下列命令</p>
 <pre><code>syslinux /dev/sdb1
 cat /usr/share/syslinux/mbr.bin &gt; /dev/sdb
-</code></pre><p>##step5<br>挂载U盘</p>
+</code></pre><h2 id="step5"><a href="#step5" class="headerlink" title="step5"></a>step5</h2><p>挂载U盘</p>
 <pre><code>mkdir /mnt/usbflash
 mount /dev/sdb1 /mnt/usbflash
-</code></pre><p>##step6<br>挂载ESXi安装镜像</p>
+</code></pre><h2 id="step6"><a href="#step6" class="headerlink" title="step6"></a>step6</h2><p>挂载ESXi安装镜像</p>
 <pre><code>mkdir /mnt/esxi_cdrom
 mount -o loop VMware-VMvisor.iso /mnt/esxi_cdrom
-</code></pre><p>##step7<br>将ISO内容复制到/mnt/usbflash</p>
+</code></pre><h2 id="step7"><a href="#step7" class="headerlink" title="step7"></a>step7</h2><p>将ISO内容复制到/mnt/usbflash</p>
 <pre><code>cp -r /mnt/esxi_cdrom/* /mnt/usbdisk
-</code></pre><p>##step8<br>将isolinux.cfg文件重命名为syslinux.cfg</p>
+</code></pre><h2 id="step8"><a href="#step8" class="headerlink" title="step8"></a>step8</h2><p>将isolinux.cfg文件重命名为syslinux.cfg</p>
 <pre><code>mv /mnt/usbflash/isolinux.cfg /usbdisk/syslinux.cfg
-</code></pre><p>##step9<br>在/mnt/usbflash/syslinux.cfg文件中，将APPEND -c boot.cfg 修改为 APPEND -c boot.cfg -p 1</p>
-<p>##step10<br>将Linux系统中的syslinux下的menu.c32文件复制到/mnt/usbflash</p>
+</code></pre><h2 id="step9"><a href="#step9" class="headerlink" title="step9"></a>step9</h2><p>在/mnt/usbflash/syslinux.cfg文件中，将APPEND -c boot.cfg 修改为 APPEND -c boot.cfg -p 1</p>
+<h2 id="step10"><a href="#step10" class="headerlink" title="step10"></a>step10</h2><p>将Linux系统中的syslinux下的menu.c32文件复制到/mnt/usbflash</p>
 <pre><code>cp /usr/share/syslinux/menu.c32 /mnt/usbflash
-</code></pre><p>##step11<br>卸载U盘和ISO镜像</p>
+</code></pre><h2 id="step11"><a href="#step11" class="headerlink" title="step11"></a>step11</h2><p>卸载U盘和ISO镜像</p>
 <pre><code>umount /usbdisk
 umount /esxi_cdrom
 </code></pre>
