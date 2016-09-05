@@ -1,0 +1,250 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<!-- Head tag -->
+<head>
+
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!--Description-->
+    
+        <meta name="description" content="@(Python)[Python]
+Python–序列化pickle在程序运行中，所有的变量都是在内存中，我们随时可以修改这些变量，但是一旦程序结束，变量所占用的内存就会被操作系统全部回收，如果没有把修改后的变量存储到硬盘上，下次重新运行程序变量要么不存在，要么变为代码中定义的值。我们把变量从内存中">
+    
+
+    <!--Author-->
+    
+        <meta name="author" content="Nikeneo">
+    
+
+    <!--Open Graph Title-->
+    
+        <meta property="og:title" content="Python--序列化"/>
+    
+
+    <!--Open Graph Site Name-->
+    <meta property="og:site_name" content="Nikeneo&#39;s TechZone"/>
+
+    <!--Page Cover-->
+    
+        <meta property="og:image" content="undefined"/>
+    
+
+    <!-- Title -->
+    
+    <title>Python--序列化 - Nikeneo&#39;s TechZone</title>
+
+    <!-- Bootstrap Core CSS -->
+    <link rel="stylesheet" href="/bootstrap/css/bootstrap.min.css">
+
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="/css/style.css">
+
+    <!-- Custom Fonts -->
+    <link href="http://maxcdn.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+    <link href='http://fonts.googleapis.com/css?family=Lora:400,700,400italic,700italic' rel='stylesheet' type='text/css'>
+    <link href='http://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800' rel='stylesheet' type='text/css'>
+
+    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+        <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+        <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+
+    <!-- Gallery -->
+    <link href="//cdn.rawgit.com/noelboss/featherlight/1.3.5/release/featherlight.min.css" type="text/css" rel="stylesheet" />
+
+    <!-- Google Analytics -->
+    
+
+
+</head>
+
+<body>
+
+    <!-- Menu -->
+    <!-- Navigation -->
+<nav class="navbar navbar-default navbar-custom navbar-fixed-top">
+    <div class="container-fluid">
+        <!-- Brand and toggle get grouped for better mobile display -->
+        <div class="navbar-header page-scroll">
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="/">Nikeneo's TechZone</a>
+        </div>
+
+        <!-- Collect the nav links, forms, and other content for toggling -->
+        <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+            <ul class="nav navbar-nav navbar-right">
+                
+                    <li>
+                        <a href="/">Home</a>
+                    </li>
+                
+                    <li>
+                        <a href="/archives">Archives</a>
+                    </li>
+                
+            </ul>
+        </div>
+        <!-- /.navbar-collapse -->
+    </div>
+    <!-- /.container -->
+</nav>
+
+    <!-- Main Content -->
+    <!-- Page Header -->
+<!-- Set your background image for this header in your post front-matter: cover -->
+
+<header class="intro-header" style="background-image: url('http://ww4.sinaimg.cn/large/92c2082bjw1f336w7nb3xj21hc0rp47b.jpg')">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                <div class="post-heading">
+                    <h1>Python--序列化</h1>
+                    
+                    <span class="meta">
+                        <!-- Date and Author -->
+                        
+                        2016-09-05
+                    </span>
+                </div>
+            </div>
+        </div>
+    </div>
+</header>
+
+<!-- Post Content -->
+<article>
+    <div class="container">
+        <div class="row">
+
+            <!-- Tags and categories -->
+           
+                <div class="col-lg-4 col-lg-offset-2 col-md-5 col-md-offset-1 post-tags">
+                    
+                        
+
+<a href="/categories/Python/">Python</a>
+
+                    
+                </div>
+                <div class="col-lg-4 col-md-5 post-categories">
+                    
+                </div>
+            
+
+            <!-- Gallery -->
+            
+
+            <!-- Post Main Content -->
+            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                <p>@(Python)[Python]</p>
+<h1 id="Python–序列化"><a href="#Python–序列化" class="headerlink" title="Python–序列化"></a>Python–序列化</h1><h2 id="pickle"><a href="#pickle" class="headerlink" title="pickle"></a>pickle</h2><p>在程序运行中，所有的变量都是在内存中，我们随时可以修改这些变量，但是一旦程序结束，变量所占用的内存就会被操作系统全部回收，如果没有把修改后的变量存储到硬盘上，下次重新运行程序变量要么不存在，要么变为代码中定义的值。<br>我们把变量从内存中变成可存储或传输的过程称之为序列化，在Python中叫pickling。<br>序列化之后，就可以吧序列化后的内容写入磁盘，或者通过网络传输到别的机器上。<br>反过来，把变量内容从序列化的对象重新读到内存里称之为反序列化，即unpickling<br>Python提供了pickle模块来实现序列化</p>
+<p>example<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">import pickle</span><br><span class="line">d = dict(name = &apos;tom&apos;, age = 20, score = 88)</span><br><span class="line">print(pickle.dumps(d))</span><br></pre></td></tr></table></figure></p>
+<p>运行结果：</p>
+<pre><code>b&apos;\x80\x03}q\x00(X\x05\x00\x00\x00scoreq\x01KXX\x04\x00\x00\x00nameq\x02X\x03\x00\x00\x00tomq\x03X\x03\x00\x00\x00ageq\x04K\x14u.&apos;
+</code></pre><p>pick.dumps()方法把任意对象序列化成一个bytes，然后，就可以把这个bytes写入文件，或者用另一个方法pickle.dump()直接把对象序列化后写入一个file-like Object<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">import pickle</span><br><span class="line">d = dict(name = &apos;tom&apos;, age = 20, score = 88)</span><br><span class="line">f = open(&apos;dump.txt&apos;, &apos;wb&apos;)</span><br><span class="line">pickle.dump(d, f)</span><br><span class="line">f.close()</span><br></pre></td></tr></table></figure></p>
+<p>当我们要把对象从磁盘读到内存时，先把内容读到一个bytes，然后用pickle.load()方法反序列化出对象，也可以直接用pickle.load()方法从一个file-like Object中直接反序列化出对象<br><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> pickle</span><br><span class="line">f = open(<span class="string">'dump.txt'</span>, <span class="string">'rb'</span>)</span><br><span class="line">d = pickle.load(f)</span><br><span class="line">f.close()</span><br><span class="line">print(d)</span><br></pre></td></tr></table></figure></p>
+<p>使用pickle反序列化出的数据只能用于Python，并且不同版本Python之间彼此都不兼容，因此只能用pickle保存那些不重要的数据。</p>
+<h2 id="JSON"><a href="#JSON" class="headerlink" title="JSON"></a>JSON</h2><p>如果我们要在不同的编程语言之间传递对象，就必须把对象序列化成标准格式，比如xml，但是，更好的的方法是序列化为json，因为json表示出来的就是一个字符串，可以被所有语言读取，也可以方便的存储到磁盘或者通过网络传输，json不仅是标准格式，并且比xml更快，而且可以直接在Web页面读取。<br>json表示的对象就是标准的javascript语言的对象。<br>python内置的json模块提供了非常完善的Python对象到json格式的转换<br><img src="./1472916167945.png" alt="json"></p>
+<p>dumps方法返回一个str，内容就是标准的json，类似的，dump方法可以直接把json写入一个file-like Object<br><img src="./1472917049818.png" alt="Alt text"></p>
+<p>Python的dict对象可以直接序列化为json的{}，不过很多时候更习惯用class表示对象，比如定义student类，然后序列化<br><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> json</span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">student</span><span class="params">(object)</span>:</span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">__init__</span><span class="params">(self, name, age, score)</span>:</span></span><br><span class="line">        self.name = name</span><br><span class="line">        self.age = age</span><br><span class="line">        self.score = score</span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">studentjson</span><span class="params">(std)</span>:</span></span><br><span class="line">    <span class="keyword">return</span> &#123;</span><br><span class="line">        <span class="string">'name'</span>: std.name,</span><br><span class="line">        <span class="string">'age'</span>: std.age,</span><br><span class="line">        <span class="string">'score'</span>:std.score</span><br><span class="line">    &#125;</span><br><span class="line">s = student(<span class="string">'bob'</span>, <span class="number">20</span>, <span class="number">88</span>)</span><br><span class="line"><span class="comment">#print(json.dumps(s, default=studentjson))</span></span><br><span class="line">print(json.dumps(s, default=<span class="keyword">lambda</span> obj: obj.__dict__))</span><br></pre></td></tr></table></figure></p>
+<p>如果没有studentjson函数，编译器会返回一个TypeError异常，错误原因是student对象不是一个可以序列化为json的对象，我们观察dumps方法的参数列表，可以发现除了第一个必须的obj参数外，dumps方法还提供了很多可选参数，如果没有studentjson函数，dumps方法就不知道如何将student实例变为一个json的{}对象。<br>可选参数default就是把任意一个对象变成一个可以序列化为json的对象。我们需要为student专门写一个类似于studentjson的转换函数，也可以使用lambda代替。<br>为什么可以用lambda简化？因为通常class实例都有一个__dict__属性，它就是一个dict，用来存储实例变量，也有少数是例外的，不如定义了__slots__的class</p>
+
+            </div>
+
+            <!-- Comments -->
+            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                
+    <hr />
+    <h3>Kommentare:</h3>
+    <div id="disqus_thread">
+        <noscript>Please enable JavaScript to view the <a href="//disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+    </div>
+
+
+
+            </div>
+        </div>
+    </div>
+</article>
+
+    <!-- Footer -->
+    <hr />
+
+<!-- Footer -->
+<footer>
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                <ul class="list-inline text-center">
+                    <li>
+                        <a href="" target="_blank">
+                            <span class="fa-stack fa-lg">
+                                <i class="fa fa-circle fa-stack-2x"></i>
+                                <i class="fa fa-twitter fa-stack-1x fa-inverse"></i>
+                            </span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="" target="_blank">
+                            <span class="fa-stack fa-lg">
+                                <i class="fa fa-circle fa-stack-2x"></i>
+                                <i class="fa fa-facebook fa-stack-1x fa-inverse"></i>
+                            </span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="https://github.com/nikeneo/" target="_blank">
+                            <span class="fa-stack fa-lg">
+                                <i class="fa fa-circle fa-stack-2x"></i>
+                                <i class="fa fa-github fa-stack-1x fa-inverse"></i>
+                            </span>
+                        </a>
+                    </li>
+                </ul>
+                <p class="copyright text-muted">Original Theme <a target="_blank" href="http://startbootstrap.com/template-overviews/clean-blog/">Clean Blog</a> from <a href="http://startbootstrap.com/" target="_blank">Start Bootstrap</a></p>
+                <p class="copyright text-muted">Adapted for <a target="_blank" href="https://hexo.io/">Hexo</a> by Nikeneo</p>
+            </div>
+        </div>
+    </div>
+</footer>
+
+
+    <!-- After footer scripts -->
+    
+<!-- jQuery -->
+<script src="/js/jquery.min.js"></script>
+
+<!-- Bootstrap -->
+<script src="/bootstrap/js/bootstrap.min.js"></script>
+
+<!-- Gallery -->
+<script src="//cdn.rawgit.com/noelboss/featherlight/1.3.5/release/featherlight.min.js" type="text/javascript" charset="utf-8"></script>
+
+<!-- Disqus Comments -->
+
+<script type="text/javascript">
+    var disqus_shortname = 'nikeneoxyz';
+
+    (function(){
+        var dsq = document.createElement('script');
+        dsq.type = 'text/javascript';
+        dsq.async = true;
+        dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    }());
+</script>
+
+
+</body>
+
+</html>

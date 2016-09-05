@@ -10,6 +10,9 @@
 
     <!--Description-->
     
+        <meta name="description" content="@(Python)[Python]
+Python–线程局部变量在多线程环境下，每个线程都有自己的数据，一个线程使用自己的局部变量比使用全局变量好，因为局部变量只有线程自己能看见，不会影响其他线程，而全局变量的修改必须枷锁。使用ThreadLocal可以自动做到1234567891011121314i">
+    
 
     <!--Author-->
     
@@ -17,6 +20,8 @@
     
 
     <!--Open Graph Title-->
+    
+        <meta property="og:title" content="Python--线程局部变量"/>
     
 
     <!--Open Graph Site Name-->
@@ -29,7 +34,7 @@
 
     <!-- Title -->
     
-    <title>page - Nikeneo&#39;s TechZone</title>
+    <title>Python--线程局部变量 - Nikeneo&#39;s TechZone</title>
 
     <!-- Bootstrap Core CSS -->
     <link rel="stylesheet" href="/bootstrap/css/bootstrap.min.css">
@@ -96,190 +101,73 @@
 
     <!-- Main Content -->
     <!-- Page Header -->
-<!-- Set your background image for this header in the theme's configuration: index_cover -->
+<!-- Set your background image for this header in your post front-matter: cover -->
+
 <header class="intro-header" style="background-image: url('http://ww4.sinaimg.cn/large/92c2082bjw1f336w7nb3xj21hc0rp47b.jpg')">
     <div class="container">
         <div class="row">
             <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
-                <div class="site-heading">
-                    <h1>Nikeneo's TechZone</h1>
-                    <hr class="small">
-                    <span class="subheading">Nikeneo的技术栈</span>
+                <div class="post-heading">
+                    <h1>Python--线程局部变量</h1>
+                    
+                    <span class="meta">
+                        <!-- Date and Author -->
+                        
+                        2016-09-05
+                    </span>
                 </div>
             </div>
         </div>
     </div>
 </header>
 
-<!-- Main Content -->
-<div class="container">
-    <div class="row">
-        <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
-            
-                <div class="post-preview">
-    <a href="/2016/09/02/Shell——函数/">
-        <h2 class="post-title">
-            Shell——函数
-        </h2>
-        
-    </a>
-    <p class="post-meta">
-        <!-- Date and Author -->
-        
-        2016-09-02
-    </p>
-</div>
-<hr>
-            
-                <div class="post-preview">
-    <a href="/2016/09/02/Shell——变量/">
-        <h2 class="post-title">
-            Shell——变量
-        </h2>
-        
-    </a>
-    <p class="post-meta">
-        <!-- Date and Author -->
-        
-        2016-09-02
-    </p>
-</div>
-<hr>
-            
-                <div class="post-preview">
-    <a href="/2016/09/02/Shell——控制结构/">
-        <h2 class="post-title">
-            Shell——控制结构
-        </h2>
-        
-    </a>
-    <p class="post-meta">
-        <!-- Date and Author -->
-        
-        2016-09-02
-    </p>
-</div>
-<hr>
-            
-                <div class="post-preview">
-    <a href="/2016/09/02/Python之函数参数/">
-        <h2 class="post-title">
-            Python之函数参数
-        </h2>
-        
-    </a>
-    <p class="post-meta">
-        <!-- Date and Author -->
-        
-        2016-09-02
-    </p>
-</div>
-<hr>
-            
-                <div class="post-preview">
-    <a href="/2016/06/19/一个科学上网方案（基于ShadowsocksR）/">
-        <h2 class="post-title">
-            一个科学上网方案（基于ShadowsocksR）
-        </h2>
-        
-    </a>
-    <p class="post-meta">
-        <!-- Date and Author -->
-        
-        2016-06-19
-    </p>
-</div>
-<hr>
-            
-                <div class="post-preview">
-    <a href="/2016/05/30/CentOS7下配置VNC曲折之路（续集）/">
-        <h2 class="post-title">
-            CentOS7下配置VNC曲折之路(续集)
-        </h2>
-        
-    </a>
-    <p class="post-meta">
-        <!-- Date and Author -->
-        
-        2016-05-30
-    </p>
-</div>
-<hr>
-            
-                <div class="post-preview">
-    <a href="/2016/05/30/Weblogic内存配置/">
-        <h2 class="post-title">
-            Weblogic内存配置
-        </h2>
-        
-    </a>
-    <p class="post-meta">
-        <!-- Date and Author -->
-        
-        2016-05-30
-    </p>
-</div>
-<hr>
-            
-                <div class="post-preview">
-    <a href="/2016/05/29/CentOS7下配置VNC曲折之路/">
-        <h2 class="post-title">
-            CentOS7下配置VNC曲折之路
-        </h2>
-        
-    </a>
-    <p class="post-meta">
-        <!-- Date and Author -->
-        
-        2016-05-29
-    </p>
-</div>
-<hr>
-            
-                <div class="post-preview">
-    <a href="/2016/05/25/RHCSA Note/">
-        <h2 class="post-title">
-            RHCSA 笔记
-        </h2>
-        
-    </a>
-    <p class="post-meta">
-        <!-- Date and Author -->
-        
-        2016-05-25
-    </p>
-</div>
-<hr>
-            
-                <div class="post-preview">
-    <a href="/2016/04/20/Linux-WEB-服务器性能优化/">
-        <h2 class="post-title">
-            Linux WEB 服务器性能优化
-        </h2>
-        
-    </a>
-    <p class="post-meta">
-        <!-- Date and Author -->
-        
-        2016-04-20
-    </p>
-</div>
-<hr>
+<!-- Post Content -->
+<article>
+    <div class="container">
+        <div class="row">
+
+            <!-- Tags and categories -->
+           
+                <div class="col-lg-4 col-lg-offset-2 col-md-5 col-md-offset-1 post-tags">
+                    
+                        
+
+<a href="/categories/Python/">Python</a>
+
+                    
+                </div>
+                <div class="col-lg-4 col-md-5 post-categories">
+                    
+                </div>
             
 
-            <ul class="pager">
-    
-        <li class="previous"><a href="/">&larr;  Nächste Seite</a></li>
-    
-    
-        <li class="next"><a href="/page/3/">Vorherige Seite  &rarr;</a></li>
-    
-</ul>
+            <!-- Gallery -->
+            
+
+            <!-- Post Main Content -->
+            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                <p>@(Python)[Python]</p>
+<h1 id="Python–线程局部变量"><a href="#Python–线程局部变量" class="headerlink" title="Python–线程局部变量"></a>Python–线程局部变量</h1><p>在多线程环境下，每个线程都有自己的数据，一个线程使用自己的局部变量比使用全局变量好，因为局部变量只有线程自己能看见，不会影响其他线程，而全局变量的修改必须枷锁。<br>使用ThreadLocal可以自动做到<br><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> threading</span><br><span class="line">local_school = threading.local()</span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">process_student</span><span class="params">()</span>:</span></span><br><span class="line">    std = local_school.student</span><br><span class="line">    print(<span class="string">'Hello, %s (in %s)'</span> % (std, threading.current_thread().name))</span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">process_thread</span><span class="params">(name)</span>:</span></span><br><span class="line">    local_school.student = name</span><br><span class="line">    process_student()</span><br><span class="line">t1 = threading.Thread(target=process_thread, args=(<span class="string">'aaa'</span>,), name=<span class="string">'Thread-A'</span>)</span><br><span class="line">t2 = threading.Thread(target=process_thread, args=(<span class="string">'bbb'</span>,), name=<span class="string">'Thread-B'</span>)</span><br><span class="line">t1.start()</span><br><span class="line">t2.start()</span><br><span class="line">t1.join()</span><br><span class="line">t2.join()</span><br></pre></td></tr></table></figure></p>
+<p>运行结果<br><img src="./1473058042495.png" alt="Alt text"><br>全局变量local_school就是一个ThreadLocal对象，每个Thread对它都可以读写student属性，但互不影响。可以把local_school看作全局变量，但每个属性如local_school.student都是线程的局部变量，可以任意读写而互不干扰，也不同管理锁的问题，ThreadLocal的内部会处理。我们不但可以用local_school.student，还可以绑定其他变量，如local_school.teacher。</p>
+<p>ThreadLocal最常用的地方就是为每个线程绑定一个数据库连接，HTTP请求，用户身份信息等，这样一个线程的所有调用到的处理函数都可以非常方便地访问这些资源。</p>
+
+            </div>
+
+            <!-- Comments -->
+            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                
+    <hr />
+    <h3>Kommentare:</h3>
+    <div id="disqus_thread">
+        <noscript>Please enable JavaScript to view the <a href="//disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+    </div>
+
+
+
+            </div>
         </div>
     </div>
-</div>
-
-
+</article>
 
     <!-- Footer -->
     <hr />
@@ -343,7 +231,7 @@
         var dsq = document.createElement('script');
         dsq.type = 'text/javascript';
         dsq.async = true;
-        dsq.src = '//' + disqus_shortname + '.disqus.com/count.js';
+        dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
         (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
     }());
 </script>

@@ -10,6 +10,9 @@
 
     <!--Description-->
     
+        <meta name="description" content="@(Python)[Python]
+Python–进程 &amp;amp;线程本文简单谈论一下进程和线程要实现多任务，我们通常会采用Master-Worker模式，Master负责分配任务，Worker负责执行任务，因此在多任务环境下，通常是一个Master，多个Worker。如果用多进程实现Master-">
+    
 
     <!--Author-->
     
@@ -17,6 +20,8 @@
     
 
     <!--Open Graph Title-->
+    
+        <meta property="og:title" content="Python--进程"/>
     
 
     <!--Open Graph Site Name-->
@@ -29,7 +34,7 @@
 
     <!-- Title -->
     
-    <title>page - Nikeneo&#39;s TechZone</title>
+    <title>Python--进程 - Nikeneo&#39;s TechZone</title>
 
     <!-- Bootstrap Core CSS -->
     <link rel="stylesheet" href="/bootstrap/css/bootstrap.min.css">
@@ -96,190 +101,76 @@
 
     <!-- Main Content -->
     <!-- Page Header -->
-<!-- Set your background image for this header in the theme's configuration: index_cover -->
+<!-- Set your background image for this header in your post front-matter: cover -->
+
 <header class="intro-header" style="background-image: url('http://ww4.sinaimg.cn/large/92c2082bjw1f336w7nb3xj21hc0rp47b.jpg')">
     <div class="container">
         <div class="row">
             <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
-                <div class="site-heading">
-                    <h1>Nikeneo's TechZone</h1>
-                    <hr class="small">
-                    <span class="subheading">Nikeneo的技术栈</span>
+                <div class="post-heading">
+                    <h1>Python--进程</h1>
+                    
+                    <span class="meta">
+                        <!-- Date and Author -->
+                        
+                        2016-09-05
+                    </span>
                 </div>
             </div>
         </div>
     </div>
 </header>
 
-<!-- Main Content -->
-<div class="container">
-    <div class="row">
-        <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
-            
-                <div class="post-preview">
-    <a href="/2016/09/02/Shell——函数/">
-        <h2 class="post-title">
-            Shell——函数
-        </h2>
-        
-    </a>
-    <p class="post-meta">
-        <!-- Date and Author -->
-        
-        2016-09-02
-    </p>
-</div>
-<hr>
-            
-                <div class="post-preview">
-    <a href="/2016/09/02/Shell——变量/">
-        <h2 class="post-title">
-            Shell——变量
-        </h2>
-        
-    </a>
-    <p class="post-meta">
-        <!-- Date and Author -->
-        
-        2016-09-02
-    </p>
-</div>
-<hr>
-            
-                <div class="post-preview">
-    <a href="/2016/09/02/Shell——控制结构/">
-        <h2 class="post-title">
-            Shell——控制结构
-        </h2>
-        
-    </a>
-    <p class="post-meta">
-        <!-- Date and Author -->
-        
-        2016-09-02
-    </p>
-</div>
-<hr>
-            
-                <div class="post-preview">
-    <a href="/2016/09/02/Python之函数参数/">
-        <h2 class="post-title">
-            Python之函数参数
-        </h2>
-        
-    </a>
-    <p class="post-meta">
-        <!-- Date and Author -->
-        
-        2016-09-02
-    </p>
-</div>
-<hr>
-            
-                <div class="post-preview">
-    <a href="/2016/06/19/一个科学上网方案（基于ShadowsocksR）/">
-        <h2 class="post-title">
-            一个科学上网方案（基于ShadowsocksR）
-        </h2>
-        
-    </a>
-    <p class="post-meta">
-        <!-- Date and Author -->
-        
-        2016-06-19
-    </p>
-</div>
-<hr>
-            
-                <div class="post-preview">
-    <a href="/2016/05/30/CentOS7下配置VNC曲折之路（续集）/">
-        <h2 class="post-title">
-            CentOS7下配置VNC曲折之路(续集)
-        </h2>
-        
-    </a>
-    <p class="post-meta">
-        <!-- Date and Author -->
-        
-        2016-05-30
-    </p>
-</div>
-<hr>
-            
-                <div class="post-preview">
-    <a href="/2016/05/30/Weblogic内存配置/">
-        <h2 class="post-title">
-            Weblogic内存配置
-        </h2>
-        
-    </a>
-    <p class="post-meta">
-        <!-- Date and Author -->
-        
-        2016-05-30
-    </p>
-</div>
-<hr>
-            
-                <div class="post-preview">
-    <a href="/2016/05/29/CentOS7下配置VNC曲折之路/">
-        <h2 class="post-title">
-            CentOS7下配置VNC曲折之路
-        </h2>
-        
-    </a>
-    <p class="post-meta">
-        <!-- Date and Author -->
-        
-        2016-05-29
-    </p>
-</div>
-<hr>
-            
-                <div class="post-preview">
-    <a href="/2016/05/25/RHCSA Note/">
-        <h2 class="post-title">
-            RHCSA 笔记
-        </h2>
-        
-    </a>
-    <p class="post-meta">
-        <!-- Date and Author -->
-        
-        2016-05-25
-    </p>
-</div>
-<hr>
-            
-                <div class="post-preview">
-    <a href="/2016/04/20/Linux-WEB-服务器性能优化/">
-        <h2 class="post-title">
-            Linux WEB 服务器性能优化
-        </h2>
-        
-    </a>
-    <p class="post-meta">
-        <!-- Date and Author -->
-        
-        2016-04-20
-    </p>
-</div>
-<hr>
+<!-- Post Content -->
+<article>
+    <div class="container">
+        <div class="row">
+
+            <!-- Tags and categories -->
+           
+                <div class="col-lg-4 col-lg-offset-2 col-md-5 col-md-offset-1 post-tags">
+                    
+                        
+
+<a href="/categories/Python/">Python</a>
+
+                    
+                </div>
+                <div class="col-lg-4 col-md-5 post-categories">
+                    
+                </div>
             
 
-            <ul class="pager">
-    
-        <li class="previous"><a href="/">&larr;  Nächste Seite</a></li>
-    
-    
-        <li class="next"><a href="/page/3/">Vorherige Seite  &rarr;</a></li>
-    
-</ul>
+            <!-- Gallery -->
+            
+
+            <!-- Post Main Content -->
+            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                <p>@(Python)[Python]</p>
+<h1 id="Python–进程-amp-线程"><a href="#Python–进程-amp-线程" class="headerlink" title="Python–进程 &amp;线程"></a>Python–进程 &amp;线程</h1><p>本文简单谈论一下进程和线程<br>要实现多任务，我们通常会采用Master-Worker模式，Master负责分配任务，Worker负责执行任务，因此在多任务环境下，通常是一个Master，多个Worker。<br>如果用多进程实现Master-Worker，主进程就是Master，其他进程就是Worker；如果多线程实现Master-Worker，主线程就是Master，其他线程就是Worker。<br>多进程模式最大的优点就是稳定性高，因为一个子进程崩溃了不会影响主进程和其他子进程；多线程模式的缺点是创建进程的代价大，在Unix/Linux可以简单的用fork调用，在Windows下创建进程开销巨大。另外，操作系统能同时运行的进程数也是有限的，在内存和CPU的限制下，如果有几千个进程同时运行，操作系统调度会成问题。<br>多线程模式比多进程快一点，但是快不到哪里去，而且多线程模式致命的缺点就是任何一个线程挂掉都可能直接造成整个系统崩溃，因为所有线程共享进程的内存。在Windows上如果一个线程执行的代码出了问题，你经常可以看到类似于“非法操作”的提示，其实往往是某个线程出了问题，而操作系统会强制结束整个进程。<br>在Windows下，多线程的效率比多进程高。</p>
+<h2 id="线程切换"><a href="#线程切换" class="headerlink" title="线程切换"></a>线程切换</h2><p>多任务如果多到了一个限度，就会消耗掉系统所有的资源，造成效率急剧下降。</p>
+<h2 id="计算密集型-amp-IO密集型"><a href="#计算密集型-amp-IO密集型" class="headerlink" title="计算密集型&amp;IO密集型"></a>计算密集型&amp;IO密集型</h2><p>我们考虑是否采用多任务时，可以把任务分为计算密集型和IO密集型<br>计算密集型任务的特点是要进行大量的计算，消耗CPU的资源，这种计算密集型任务虽然可以用多任务完成，但是任务越多，华仔任务切换的时间就越多，CPU执行任务的效率就越低，所以要最高效的利用CPU的话，同时进行的数量应等于CPU的核心数。另外，计算密集型代码运行效率很重要，Python这样的脚本语言运行效率低，不适合做计算密集型任务，对于此类任务，最好用C语言编写。</p>
+<p>第二种是IO密集型，涉及到网络、磁盘IO的任务都是IO密集型任务，这类任务的CPU消耗很少，任务大部分时间都在等待IO操作完成，对于IO密集型任务，任务越多CPU效率越高，但也有一个限度，常见的大部分任务都是IO密集型，例如WEB服务。</p>
+<h2 id="异步IO"><a href="#异步IO" class="headerlink" title="异步IO"></a>异步IO</h2><p>考虑到CPU和IO之间巨大的速度差异，一个任务在执行的过程中大部分时间都在等待IO操作，单进程单线程模型会导致别的任务无法并行执行，因此我们需要多进程模型或者多线程模型来支持多任务并发执行。<br>现代操作系统最大的特点就是支持异步IO。如果充分利用操作系统提供的异步IO支持，就可以用单进程单线程模型来执行多任务，这种模型称为事件驱动模型，Nginx就是支持异步IO的Web服务器，它在单核CPU上采用单进程模型就可以高效地支持多任务。在多核CPU上可以运行多个进程（数量与CPU核心数相同），充分利用多核CPU。</p>
+<p>对应到Python，单进程的异步编程模型称为<strong>协程</strong>，有了协程的支持，就可以基于事件驱动编写高效的多任务程序。</p>
+
+            </div>
+
+            <!-- Comments -->
+            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                
+    <hr />
+    <h3>Kommentare:</h3>
+    <div id="disqus_thread">
+        <noscript>Please enable JavaScript to view the <a href="//disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+    </div>
+
+
+
+            </div>
         </div>
     </div>
-</div>
-
-
+</article>
 
     <!-- Footer -->
     <hr />
@@ -343,7 +234,7 @@
         var dsq = document.createElement('script');
         dsq.type = 'text/javascript';
         dsq.async = true;
-        dsq.src = '//' + disqus_shortname + '.disqus.com/count.js';
+        dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
         (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
     }());
 </script>
