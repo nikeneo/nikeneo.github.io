@@ -11,8 +11,8 @@
     <!--Description-->
     
         <meta name="description" content="@(Linux程序设计)[Shell编程]
-Shell——函数123function_name () &amp;#123;	statements&amp;#125;
-a simple function example123456789101112131415161718192021222324#!/bin/bash">
+Shell——AWKawk是个强大的文本分析工具，其对数据进行分析并生成报告时功能非常强大，简单来说awk是把文件逐行的读入，以空格为默认分隔符将每行切片，切开的部分再进行各种分析处理。
+使用方法awk &amp;apos;{pattern + action}&amp;a">
     
 
     <!--Author-->
@@ -22,7 +22,7 @@ a simple function example123456789101112131415161718192021222324#!/bin/bash">
 
     <!--Open Graph Title-->
     
-        <meta property="og:title" content="Shell——函数"/>
+        <meta property="og:title" content="Shell——AWK"/>
     
 
     <!--Open Graph Site Name-->
@@ -35,7 +35,7 @@ a simple function example123456789101112131415161718192021222324#!/bin/bash">
 
     <!-- Title -->
     
-    <title>Shell——函数 - Nikeneo&#39;s TechZone</title>
+    <title>Shell——AWK - Nikeneo&#39;s TechZone</title>
 
     <!-- Bootstrap Core CSS -->
     <link rel="stylesheet" href="/bootstrap/css/bootstrap.min.css">
@@ -109,12 +109,12 @@ a simple function example123456789101112131415161718192021222324#!/bin/bash">
         <div class="row">
             <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
                 <div class="post-heading">
-                    <h1>Shell——函数</h1>
+                    <h1>Shell——AWK</h1>
                     
                     <span class="meta">
                         <!-- Date and Author -->
                         
-                        2016-09-02
+                        2016-09-16
                     </span>
                 </div>
             </div>
@@ -148,8 +148,26 @@ a simple function example123456789101112131415161718192021222324#!/bin/bash">
             <!-- Post Main Content -->
             <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
                 <p>@(Linux程序设计)[Shell编程]</p>
-<h1 id="Shell——函数"><a href="#Shell——函数" class="headerlink" title="Shell——函数"></a>Shell——函数</h1><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">function_name () &#123;</span><br><span class="line">	statements</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>a simple function example<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line">#!/bin/bash</span><br><span class="line">yes_or_no() &#123;</span><br><span class="line">        echo &quot;Is your name $* ?&quot;</span><br><span class="line">        while true</span><br><span class="line">        do</span><br><span class="line">                echo -n &quot;Enter yes or no&quot;</span><br><span class="line">                read x</span><br><span class="line">                case &quot;$x&quot; in</span><br><span class="line">                        y | yes )       return 0;;</span><br><span class="line">                        n | no )        return 1;;</span><br><span class="line">                        * )             echo &quot;Answer yes or no please!&quot;;;</span><br><span class="line">                esac</span><br><span class="line">        done</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">echo &quot;Original parameters are $*&quot;</span><br><span class="line">if yes_or_no &quot;$1&quot;</span><br><span class="line">then</span><br><span class="line">        echo &quot;Hi $1, nice time&quot;</span><br><span class="line">else</span><br><span class="line">        echo &quot;Never mind&quot;</span><br><span class="line">fi</span><br><span class="line"></span><br><span class="line">exit 0</span><br></pre></td></tr></table></figure></p>
+<h1 id="Shell——AWK"><a href="#Shell——AWK" class="headerlink" title="Shell——AWK"></a>Shell——AWK</h1><p>awk是个强大的文本分析工具，其对数据进行分析并生成报告时功能非常强大，简单来说awk是把文件逐行的读入，以空格为默认分隔符将每行切片，切开的部分再进行各种分析处理。</p>
+<h2 id="使用方法"><a href="#使用方法" class="headerlink" title="使用方法"></a>使用方法</h2><pre><code>awk &apos;{pattern + action}&apos; {filename}
+</code></pre><p>pattern表示awk在数据中查找的内容，而action表示在匹配内容时所执行的一系列命令，花括号{}不需要在程序中始终出现，但他们用于根据特定的模式对一系列指令进行分组。pattern就是要表示的正则表达式，用斜杠括起来，awk语言的最基本功能就是在文件或者字符串中基于指定规则浏览和抽取信息，awk抽取信息后，才能进行其他的文本操作，完整的awk脚本通常用来格式化文本文件中的信息。<br>通常awk是以文件的一行为处理单位的，awk没接收文件的一行，然后执行响应的命令，来处理文本。</p>
+<p>##实例<br>假如我们查看web服务器日志，输出如下<br><img src="./1474019815474.png" alt="Alt text"><br>如果只是显示最近访问的五个IP<br><img src="./1474021721001.png" alt="Alt text"><br>awk工作流程是读入有’\n’换行符分隔的一条记录，然后将记录按指定的域分隔符划分域，填充域；\$0则表示所有的域，$n表示第n个域，默认的域分隔符是空格键或tab键</p>
+<p>如果只显示登录日期和时间<br><img src="./1474021862373.png" alt="Alt text"><br>这种是awk+action的实例，每行都会执行action{print$1}<br>-F指定域分隔符为’:’<br>如果只是显示/etc/passwd的账户和账户对应的shell，且账户和shell之间以tab键分隔<br><img src="./1474022118884.png" alt="Alt text"><br>如果只是显示IP地址、访问时间、访问类型和访问路径，而彼此之间以逗号分隔，而且在所有行添加列名==========START==========，在最后一行添加==========END==========<br><img src="./1474022514519.png" alt="Alt text"></p>
+<p>搜索/etc/passwd有root关键字的所有行，并显示对应的shell<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">awk -F: <span class="string">'/root/&#123;print $7&#125;'</span> /etc/passwd             </span><br><span class="line">/bin/bash</span><br></pre></td></tr></table></figure></p>
+<h2 id="awk内置变量"><a href="#awk内置变量" class="headerlink" title="awk内置变量"></a>awk内置变量</h2><p>awk有许多内置变量用来设置环境信息，这些变量可以改变，下面给出了最常用的一些变量：</p>
+<ul>
+<li>ARGC    命令行参数个数</li>
+<li>ARGV    命令行参数排列</li>
+<li>ENVIRON 支持队列中系统环境变量的使用</li>
+<li>FILENAME awk浏览的文件名</li>
+<li>FNR     浏览文件的记录数</li>
+<li>FS       设置输入域分隔符，等价于-F选项</li>
+<li>NF       浏览记录域的个数</li>
+<li>NR       已读的记录数</li>
+<li>OFS     输出域分隔符</li>
+<li>ORS     输出记录分隔符</li>
+<li>RS      控制记录分隔符<br>例如，统计/etc/passwd文件名，每行的行号，每行的列数，对应的完整行内容<br><img src="./1474026577261.png" alt="Alt text"><br>使用printf替代print可以使代码更加简洁<h2 id="awk编程"><a href="#awk编程" class="headerlink" title="awk编程"></a>awk编程</h2>除了awk的内置变量，awk还可以自定义变量，比如要统计/etc/passwd的账户人数<br><img src="./1474027238703.png" alt="Alt text"><br><img src="./1474027244963.png" alt="Alt text"><br>count是自定义变量，之前的action{}里都是只有一个printed，其实printed只是一个语句，而action{}可以有多个语句，以;号隔开<br>统计某个文件夹下文件占用的字节数<br><img src="./1474027664606.png" alt="Alt text"><br>如果以M为单位<br><img src="./1474027726252.png" alt="Alt text"><br>统计某个文件夹下文件占用的字节数，过滤4096大小的文件（一般都是文件夹）（if条件判断）<br><img src="./1474029382538.png" alt="Alt text"><br>显示/etc/passwd的账户（for循环）<br><img src="./1474029571479.png" alt="Alt text"></li>
+</ul>
 
             </div>
 
